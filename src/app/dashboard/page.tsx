@@ -79,6 +79,11 @@ export default function DashboardPage() {
   const [actionError, setActionError] = useState('');
   const [actionSuccess, setActionSuccess] = useState('');
 
+  const [authTokenInput, setAuthTokenInput] = useState('');
+  const [submittingToken, setSubmittingToken] = useState(false);
+  const [tokenError, setTokenError] = useState('');
+  const [tokenSuccess, setTokenSuccess] = useState('');
+
   const fetchData = useCallback(async () => {
     try {
       const authRes = await fetch('/api/auth/me');
@@ -128,6 +133,40 @@ export default function DashboardPage() {
 
   const handleSelectOption = (questionIdx: number, optionIdx: number) => {
     setQuizAnswers((prev) => ({ ...prev, [questionIdx]: optionIdx }));
+  };
+
+  const handleTokenSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!authTokenInput.trim()) return;
+
+    setSubmittingToken(true);
+    setTokenError('');
+    setTokenSuccess('');
+
+    try {
+      const res = await fetch('/api/auth/token', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ token: authTokenInput }),
+      });
+
+      const data = await res.json();
+      if (!res.ok) {
+        throw new Error(data.error || 'Failed to authorize token');
+      }
+
+      setTokenSuccess(data.message || 'Authorization token accepted!');
+      if (user) {
+        setUser({ ...user, isAuthorized: true });
+      }
+      fetchData();
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        setTokenError(err.message);
+      }
+    } finally {
+      setSubmittingToken(false);
+    }
   };
 
   const handleQuizSubmit = async () => {
@@ -359,10 +398,54 @@ export default function DashboardPage() {
                 </p>
               </div>
 
+              <form onSubmit={handleTokenSubmit} className="space-y-4 text-left bg-slate-900/90 p-5 rounded-2xl border border-slate-800 shadow-xl">
+                <label htmlFor="token-input" className="block text-xs font-semibold text-slate-300">
+                  Enter Authorization Token
+                </label>
+                <div className="flex flex-col sm:flex-row gap-2">
+                  <input
+                    id="token-input"
+                    type="text"
+                    value={authTokenInput}
+                    onChange={(e) => setAuthTokenInput(e.target.value)}
+                    placeholder="Enter course authorization token..."
+                    className="flex-1 px-3.5 py-2.5 rounded-xl bg-slate-950 border border-slate-700 text-xs text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                  />
+                  <button
+                    type="submit"
+                    disabled={submittingToken || !authTokenInput.trim()}
+                    className="px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 disabled:opacity-50 text-white text-xs font-bold transition-colors shadow-md flex items-center justify-center space-x-1.5 shrink-0"
+                  >
+                    {submittingToken ? (
+                      <span>Verifying...</span>
+                    ) : (
+                      <>
+                        <Key className="w-3.5 h-3.5" />
+                        <span>Submit Token</span>
+                      </>
+                    )}
+                  </button>
+                </div>
+
+                {tokenError && (
+                  <div className="p-3 rounded-lg bg-rose-500/10 border border-rose-500/30 text-rose-300 text-xs flex items-center space-x-2">
+                    <AlertCircle className="w-4 h-4 shrink-0 text-rose-400" />
+                    <span>{tokenError}</span>
+                  </div>
+                )}
+
+                {tokenSuccess && (
+                  <div className="p-3 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-xs flex items-center space-x-2">
+                    <CheckCircle2 className="w-4 h-4 shrink-0 text-emerald-400" />
+                    <span>{tokenSuccess}</span>
+                  </div>
+                )}
+              </form>
+
               <div className="bg-slate-900/80 p-4 rounded-xl border border-slate-800 text-xs text-slate-400 text-left space-y-2 font-mono">
                 <p className="text-slate-300 font-semibold font-sans">How to activate access:</p>
-                <p>1. Contact the instructor to approve your account token.</p>
-                <p>2. Once granted, refresh this page to unlock all module contents & quizzes.</p>
+                <p>1. Enter your authorization token granted by the instructor in the field above.</p>
+                <p>2. Click &quot;Submit Token&quot; to unlock all course module contents &amp; quizzes.</p>
               </div>
             </div>
           ) : !selectedModule ? (

@@ -21,6 +21,28 @@ const UserSchema = new Schema<IUser>({
 
 export const User: Model<IUser> = mongoose.models.User || mongoose.model<IUser>('User', UserSchema);
 
+export interface IAuthToken extends Document {
+  _id: mongoose.Types.ObjectId;
+  code: string;
+  createdBy?: mongoose.Types.ObjectId;
+  createdAt: Date;
+  isUsed: boolean;
+  usedBy?: mongoose.Types.ObjectId;
+  usedAt?: Date;
+}
+
+const AuthTokenSchema = new Schema<IAuthToken>({
+  code: { type: String, required: true, unique: true },
+  createdBy: { type: Schema.Types.ObjectId, ref: 'User' },
+  createdAt: { type: Date, default: Date.now },
+  isUsed: { type: Boolean, default: false },
+  usedBy: { type: Schema.Types.ObjectId, ref: 'User' },
+  usedAt: { type: Date },
+});
+
+export const AuthToken: Model<IAuthToken> =
+  mongoose.models.AuthToken || mongoose.model<IAuthToken>('AuthToken', AuthTokenSchema);
+
 export interface ILesson {
   tag: string;
   heading: string;
