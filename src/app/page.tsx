@@ -128,7 +128,7 @@ export default function LandingPage() {
               <span className="text-xs text-slate-400">Total, Self-Paced</span>
             </div>
             <div className="p-3.5 rounded-lg bg-slate-900/60 border border-slate-800">
-              <span className="text-2xl font-bold text-purple-400 block">$0</span>
+              <span className="text-2xl font-bold text-purple-400 block">₦0</span>
               <span className="text-xs text-slate-400">Everything Has a Free Tier</span>
             </div>
           </div>
@@ -275,7 +275,7 @@ export default function LandingPage() {
             <div className="space-y-2 pt-3 border-t border-slate-800 text-xs text-slate-300">
               <div className="flex justify-between py-1 border-b border-slate-800/50">
                 <span>Vercel + MongoDB Atlas</span>
-                <span className="text-emerald-400 font-semibold">$0 Free Tier</span>
+                <span className="text-emerald-400 font-semibold">₦0 Free Tier</span>
               </div>
               <div className="flex justify-between py-1">
                 <span>Google Jules Agent</span>

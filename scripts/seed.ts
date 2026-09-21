@@ -302,12 +302,12 @@ const modulesData = [
       },
     ],
     exercise:
-      'Review the cost matrix and confirm that all software tools for your capstone project are running on $0 free tiers.',
+      'Review the cost matrix and confirm that all software tools for your capstone project are running on ₦0 free tiers.',
     tip: 'All product names, pricing, and interfaces change over time — treat exact tier limits as snapshots and check official vendor pricing before committing.',
     quiz: [
       {
         questionText: 'How much upfront money is required to build and host a full-stack application using the course stack?',
-        options: ['$0 (Everything has a free tier)', '$50/month', '$500 upfront', '$1,000/year'],
+        options: ['₦0 (Everything has a free tier)', '₦50/month', '₦500 upfront', '₦1,000/year'],
         correctAnswerIndex: 0,
       },
     ],
