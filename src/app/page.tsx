@@ -23,7 +23,7 @@ export default function LandingPage() {
       title: 'Windows 11 Fundamentals',
       accent: '#5C4A72',
       accentName: 'Plum',
-      bgClass: 'bg-[#5C4A72]/20 border-[#5C4A72]/40',
+      bgClass: 'bg-white border-slate-200 shadow-sm hover:border-indigo-300',
       badgeBg: 'bg-[#5C4A72]',
       icon: Monitor,
       desc: 'Master OS navigation, Taskbar, File Explorer, Quick Settings, and essential Windows 11 keyboard shortcuts.',
@@ -34,7 +34,7 @@ export default function LandingPage() {
       title: 'Office Foundations',
       accent: '#2E5C8A',
       accentName: 'Blue',
-      bgClass: 'bg-[#2E5C8A]/20 border-[#2E5C8A]/40',
+      bgClass: 'bg-white border-slate-200 shadow-sm hover:border-indigo-300',
       badgeBg: 'bg-[#2E5C8A]',
       icon: FileSpreadsheet,
       desc: 'Draft PRDs in Word with Styles, construct budgets in Excel with SUM/XLOOKUP, and build PowerPoint pitch decks.',
@@ -45,7 +45,7 @@ export default function LandingPage() {
       title: 'Drafting with Claude',
       accent: '#A85A2A',
       accentName: 'Copper',
-      bgClass: 'bg-[#A85A2A]/20 border-[#A85A2A]/40',
+      bgClass: 'bg-white border-slate-200 shadow-sm hover:border-indigo-300',
       badgeBg: 'bg-[#A85A2A]',
       icon: MessageSquare,
       desc: 'Prompt engineering principles, drafting loop (brief → outline → draft → refine), and converting AI copy into Word/PPT.',
@@ -56,7 +56,7 @@ export default function LandingPage() {
       title: 'Designing Infographics',
       accent: '#96721F',
       accentName: 'Gold',
-      bgClass: 'bg-[#96721F]/20 border-[#96721F]/40',
+      bgClass: 'bg-white border-slate-200 shadow-sm hover:border-indigo-300',
       badgeBg: 'bg-[#96721F]',
       icon: Palette,
       desc: 'Create clear infographic briefs, generate visuals in ChatGPT, fact-check data labels, and embed into proposal docs.',
@@ -67,7 +67,7 @@ export default function LandingPage() {
       title: 'Building & Deploying',
       accent: '#3F6249',
       accentName: 'Sage',
-      bgClass: 'bg-[#3F6249]/20 border-[#3F6249]/40',
+      bgClass: 'bg-white border-slate-200 shadow-sm hover:border-indigo-300',
       badgeBg: 'bg-[#3F6249]',
       icon: Rocket,
       desc: 'Agentic AI & vibe coding pipeline: Bolt prototype → MongoDB Atlas → GitHub → Vercel Hobby → Google Jules agent tasks.',
@@ -76,94 +76,94 @@ export default function LandingPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#0F172A] text-slate-100 flex flex-col font-sans">
+    <div className="min-h-screen bg-slate-50 text-slate-900 flex flex-col font-sans">
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-[#1B2330] via-[#1B2330]/90 to-[#0F172A] pt-20 pb-24 border-b border-slate-800">
+      <section className="relative overflow-hidden bg-gradient-to-b from-slate-100 via-indigo-50/40 to-slate-50 pt-20 pb-24 border-b border-slate-200">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/30 text-indigo-300 text-xs font-medium mb-6">
-            <Sparkles className="w-3.5 h-3.5 text-indigo-400" />
+          <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-indigo-100 border border-indigo-200 text-indigo-800 text-xs font-semibold mb-6">
+            <Sparkles className="w-3.5 h-3.5 text-indigo-600" />
             <span>Structured Path for Absolute Beginners</span>
           </div>
 
-          <h1 className="font-serif text-4xl sm:text-6xl font-extrabold tracking-tight text-white mb-6 leading-tight max-w-4xl mx-auto">
+          <h1 className="font-serif text-4xl sm:text-6xl font-extrabold tracking-tight text-slate-900 mb-6 leading-tight max-w-4xl mx-auto">
             Deploy Websites and Applications for{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-300 to-amber-300">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-purple-600 to-amber-600">
               Absolute Beginners
             </span>
           </h1>
 
-          <p className="text-lg sm:text-xl text-slate-300 max-w-3xl mx-auto mb-10 leading-relaxed font-light">
+          <p className="text-lg sm:text-xl text-slate-600 max-w-3xl mx-auto mb-10 leading-relaxed font-light">
             Windows 11 — Word, PowerPoint & Excel — prompt engineering with Claude, infographics with ChatGPT, and an agentic, vibe-coding pipeline: Bolt, GitHub, Vercel and Google Jules.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-14">
             <Link
               href="/signup"
-              className="w-full sm:w-auto px-8 py-3.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white font-semibold shadow-lg shadow-indigo-600/30 transition-all flex items-center justify-center space-x-2 group"
+              className="w-full sm:w-auto px-8 py-3.5 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white font-semibold shadow-lg shadow-indigo-600/20 transition-all flex items-center justify-center space-x-2 group"
             >
               <span>Start Learning Now</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Link>
             <Link
               href="/login"
-              className="w-full sm:w-auto px-8 py-3.5 rounded-lg bg-slate-800/80 hover:bg-slate-700/80 text-slate-200 font-semibold border border-slate-700 transition-all flex items-center justify-center space-x-2"
+              className="w-full sm:w-auto px-8 py-3.5 rounded-lg bg-white hover:bg-slate-100 text-slate-700 font-semibold border border-slate-300 transition-all flex items-center justify-center space-x-2 shadow-sm"
             >
               <span>Sign In to Portal</span>
             </Link>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-3xl mx-auto pt-6 border-t border-slate-800/80 text-left">
-            <div className="p-3.5 rounded-lg bg-slate-900/60 border border-slate-800">
-              <span className="text-2xl font-bold text-white block">5</span>
-              <span className="text-xs text-slate-400">Core Modules</span>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-3xl mx-auto pt-6 border-t border-slate-200 text-left">
+            <div className="p-3.5 rounded-lg bg-white border border-slate-200 shadow-sm">
+              <span className="text-2xl font-bold text-slate-900 block">5</span>
+              <span className="text-xs text-slate-500">Core Modules</span>
             </div>
-            <div className="p-3.5 rounded-lg bg-slate-900/60 border border-slate-800">
-              <span className="text-2xl font-bold text-amber-400 block">1</span>
-              <span className="text-xs text-slate-400">Capstone Project</span>
+            <div className="p-3.5 rounded-lg bg-white border border-slate-200 shadow-sm">
+              <span className="text-2xl font-bold text-amber-600 block">1</span>
+              <span className="text-xs text-slate-500">Capstone Project</span>
             </div>
-            <div className="p-3.5 rounded-lg bg-slate-900/60 border border-slate-800">
-              <span className="text-2xl font-bold text-emerald-400 block">~10.5 hrs</span>
-              <span className="text-xs text-slate-400">Total, Self-Paced</span>
+            <div className="p-3.5 rounded-lg bg-white border border-slate-200 shadow-sm">
+              <span className="text-2xl font-bold text-emerald-600 block">~10.5 hrs</span>
+              <span className="text-xs text-slate-500">Total, Self-Paced</span>
             </div>
-            <div className="p-3.5 rounded-lg bg-slate-900/60 border border-slate-800">
-              <span className="text-2xl font-bold text-purple-400 block">$0</span>
-              <span className="text-xs text-slate-400">Everything Has a Free Tier</span>
+            <div className="p-3.5 rounded-lg bg-white border border-slate-200 shadow-sm">
+              <span className="text-2xl font-bold text-purple-600 block">$0</span>
+              <span className="text-xs text-slate-500">Everything Has a Free Tier</span>
             </div>
           </div>
         </div>
       </section>
 
       {/* Course Principles */}
-      <section className="py-12 bg-[#1B2330]/50 border-b border-slate-800">
+      <section className="py-12 bg-slate-100/70 border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h3 className="text-xs font-mono uppercase tracking-widest text-indigo-400 text-center mb-6">How this course works</h3>
+          <h3 className="text-xs font-mono uppercase tracking-widest text-indigo-700 text-center mb-6 font-semibold">How this course works</h3>
           <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
-            <div className="p-4 bg-slate-900/80 border border-slate-800 rounded-xl space-y-2">
-              <div className="w-6 h-6 rounded bg-indigo-500/20 text-indigo-400 font-bold text-xs flex items-center justify-center">1</div>
-              <h4 className="font-serif font-bold text-sm text-white">One flow, not five exercises</h4>
-              <p className="text-xs text-slate-400">Each module&apos;s output becomes the next module&apos;s raw material — proposal &rarr; infographic &rarr; deck &rarr; live application.</p>
+            <div className="p-4 bg-white border border-slate-200 rounded-xl space-y-2 shadow-sm">
+              <div className="w-6 h-6 rounded bg-indigo-100 text-indigo-700 font-bold text-xs flex items-center justify-center">1</div>
+              <h4 className="font-serif font-bold text-sm text-slate-900">One flow, not five exercises</h4>
+              <p className="text-xs text-slate-600">Each module&apos;s output becomes the next module&apos;s raw material — proposal &rarr; infographic &rarr; deck &rarr; live application.</p>
             </div>
-            <div className="p-4 bg-slate-900/80 border border-slate-800 rounded-xl space-y-2">
-              <div className="w-6 h-6 rounded bg-indigo-500/20 text-indigo-400 font-bold text-xs flex items-center justify-center">2</div>
-              <h4 className="font-serif font-bold text-sm text-white">Built for beginners</h4>
-              <p className="text-xs text-slate-400">No prior experience assumed beyond knowing how to turn a computer on.</p>
+            <div className="p-4 bg-white border border-slate-200 rounded-xl space-y-2 shadow-sm">
+              <div className="w-6 h-6 rounded bg-indigo-100 text-indigo-700 font-bold text-xs flex items-center justify-center">2</div>
+              <h4 className="font-serif font-bold text-sm text-slate-900">Built for beginners</h4>
+              <p className="text-xs text-slate-600">No prior experience assumed beyond knowing how to turn a computer on.</p>
             </div>
-            <div className="p-4 bg-slate-900/80 border border-slate-800 rounded-xl space-y-2">
-              <div className="w-6 h-6 rounded bg-indigo-500/20 text-indigo-400 font-bold text-xs flex items-center justify-center">3</div>
-              <h4 className="font-serif font-bold text-sm text-white">Practical AI skills</h4>
-              <p className="text-xs text-slate-400">Prompt engineering, agentic AI and vibe coding are taught as you use them — not as separate theory.</p>
+            <div className="p-4 bg-white border border-slate-200 rounded-xl space-y-2 shadow-sm">
+              <div className="w-6 h-6 rounded bg-indigo-100 text-indigo-700 font-bold text-xs flex items-center justify-center">3</div>
+              <h4 className="font-serif font-bold text-sm text-slate-900">Practical AI skills</h4>
+              <p className="text-xs text-slate-600">Prompt engineering, agentic AI and vibe coding are taught as you use them — not as separate theory.</p>
             </div>
-            <div className="p-4 bg-slate-900/80 border border-slate-800 rounded-xl space-y-2">
-              <div className="w-6 h-6 rounded bg-indigo-500/20 text-indigo-400 font-bold text-xs flex items-center justify-center">4</div>
-              <h4 className="font-serif font-bold text-sm text-white">Tools change fast</h4>
-              <p className="text-xs text-slate-400">AI product interfaces shift often — this course flags where to check what&apos;s current.</p>
+            <div className="p-4 bg-white border border-slate-200 rounded-xl space-y-2 shadow-sm">
+              <div className="w-6 h-6 rounded bg-indigo-100 text-indigo-700 font-bold text-xs flex items-center justify-center">4</div>
+              <h4 className="font-serif font-bold text-sm text-slate-900">Tools change fast</h4>
+              <p className="text-xs text-slate-600">AI product interfaces shift often — this course flags where to check what&apos;s current.</p>
             </div>
-            <div className="p-4 bg-slate-900/80 border border-slate-800 rounded-xl space-y-2">
-              <div className="w-6 h-6 rounded bg-indigo-500/20 text-indigo-400 font-bold text-xs flex items-center justify-center">5</div>
-              <h4 className="font-serif font-bold text-sm text-white">Online only</h4>
-              <p className="text-xs text-slate-400">Everything runs in a browser or on your own PC — self-paced and flexible.</p>
+            <div className="p-4 bg-white border border-slate-200 rounded-xl space-y-2 shadow-sm">
+              <div className="w-6 h-6 rounded bg-indigo-100 text-indigo-700 font-bold text-xs flex items-center justify-center">5</div>
+              <h4 className="font-serif font-bold text-sm text-slate-900">Online only</h4>
+              <p className="text-xs text-slate-600">Everything runs in a browser or on your own PC — self-paced and flexible.</p>
             </div>
           </div>
         </div>
@@ -172,10 +172,10 @@ export default function LandingPage() {
       {/* 5-Step Roadmap Graphic */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
         <div className="text-center mb-16">
-          <h2 className="font-serif text-3xl sm:text-4xl font-bold text-white mb-4">
+          <h2 className="font-serif text-3xl sm:text-4xl font-bold text-slate-900 mb-4">
             The 5-Step Beginner Learning Roadmap
           </h2>
-          <p className="text-slate-400 max-w-2xl mx-auto text-sm sm:text-base">
+          <p className="text-slate-600 max-w-2xl mx-auto text-sm sm:text-base">
             Each module hands its output to the next: proposal &rarr; infographic &rarr; pitch deck &rarr; live application.
           </p>
         </div>
@@ -195,27 +195,27 @@ export default function LandingPage() {
                     >
                       {step.num}
                     </span>
-                    <span className="text-[11px] font-mono text-slate-400 bg-slate-900/60 px-2 py-0.5 rounded border border-slate-700">
+                    <span className="text-[11px] font-mono text-slate-600 bg-slate-100 px-2 py-0.5 rounded border border-slate-200">
                       {step.time}
                     </span>
                   </div>
 
                   <div className="flex items-center space-x-2 mb-2">
-                    <StepIcon className="w-5 h-5 text-white/90" />
-                    <h3 className="font-serif font-semibold text-white text-base leading-snug">
+                    <StepIcon className="w-5 h-5 text-slate-700" />
+                    <h3 className="font-serif font-semibold text-slate-900 text-base leading-snug">
                       {step.title}
                     </h3>
                   </div>
 
-                  <p className="text-xs text-slate-300 leading-relaxed mb-4">{step.desc}</p>
+                  <p className="text-xs text-slate-600 leading-relaxed mb-4">{step.desc}</p>
                 </div>
 
-                <div className="pt-3 border-t border-slate-700/50 flex items-center justify-between text-[11px] text-slate-400">
+                <div className="pt-3 border-t border-slate-200 flex items-center justify-between text-[11px] text-slate-500">
                   <span className="flex items-center space-x-1">
-                    <Zap className="w-3 h-3 text-amber-400" />
+                    <Zap className="w-3 h-3 text-amber-500" />
                     <span>Quiz + Auth</span>
                   </span>
-                  <span className="font-mono text-slate-400">{step.accentName}</span>
+                  <span className="font-mono text-slate-500">{step.accentName}</span>
                 </div>
               </div>
             );
@@ -224,62 +224,62 @@ export default function LandingPage() {
 
         {/* Capstone & Toolkit Banner */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          <div className="lg:col-span-2 p-6 sm:p-8 rounded-2xl bg-gradient-to-r from-[#1B2330] via-indigo-950/40 to-slate-900 border border-indigo-500/30 relative overflow-hidden flex flex-col justify-between">
+          <div className="lg:col-span-2 p-6 sm:p-8 rounded-2xl bg-gradient-to-r from-indigo-50 via-purple-50/50 to-amber-50/30 border border-indigo-200 shadow-sm relative overflow-hidden flex flex-col justify-between">
             <div className="flex items-start justify-between mb-6">
               <div>
-                <span className="inline-flex items-center space-x-1.5 text-xs font-bold uppercase tracking-wider text-amber-400 bg-amber-400/10 px-3 py-1 rounded-full border border-amber-400/30 mb-3">
-                  <Award className="w-3.5 h-3.5" /> Capstone Project
+                <span className="inline-flex items-center space-x-1.5 text-xs font-bold uppercase tracking-wider text-amber-800 bg-amber-100 px-3 py-1 rounded-full border border-amber-300 mb-3">
+                  <Award className="w-3.5 h-3.5 text-amber-600" /> Capstone Project
                 </span>
-                <h3 className="font-serif text-2xl font-bold text-white mb-2">
+                <h3 className="font-serif text-2xl font-bold text-slate-900 mb-2">
                   Ship a Proposal-Backed Application
                 </h3>
-                <p className="text-sm text-slate-300 max-w-xl">
+                <p className="text-sm text-slate-600 max-w-xl">
                   Combine all five modules into one deliverable: a small application idea, pitched properly with a Word proposal, PowerPoint deck, ChatGPT infographic, and deployed live on Vercel.
                 </p>
               </div>
             </div>
 
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-4 border-t border-slate-800">
-              <div className="bg-slate-900/80 p-2.5 rounded-lg border border-slate-800 text-xs">
-                <span className="text-slate-400 block text-[10px]">Deliverable 1</span>
-                <span className="font-medium text-slate-200">Proposal Doc</span>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-4 border-t border-slate-200">
+              <div className="bg-white p-2.5 rounded-lg border border-slate-200 text-xs shadow-sm">
+                <span className="text-slate-500 block text-[10px]">Deliverable 1</span>
+                <span className="font-medium text-slate-800">Proposal Doc</span>
               </div>
-              <div className="bg-slate-900/80 p-2.5 rounded-lg border border-slate-800 text-xs">
-                <span className="text-slate-400 block text-[10px]">Deliverable 2</span>
-                <span className="font-medium text-slate-200">Pitch Deck</span>
+              <div className="bg-white p-2.5 rounded-lg border border-slate-200 text-xs shadow-sm">
+                <span className="text-slate-500 block text-[10px]">Deliverable 2</span>
+                <span className="font-medium text-slate-800">Pitch Deck</span>
               </div>
-              <div className="bg-slate-900/80 p-2.5 rounded-lg border border-slate-800 text-xs">
-                <span className="text-slate-400 block text-[10px]">Deliverable 3</span>
-                <span className="font-medium text-slate-200">Infographic Link</span>
+              <div className="bg-white p-2.5 rounded-lg border border-slate-200 text-xs shadow-sm">
+                <span className="text-slate-500 block text-[10px]">Deliverable 3</span>
+                <span className="font-medium text-slate-800">Infographic Link</span>
               </div>
-              <div className="bg-slate-900/80 p-2.5 rounded-lg border border-slate-800 text-xs">
-                <span className="text-slate-400 block text-[10px]">Deliverable 4</span>
-                <span className="font-medium font-mono text-emerald-400">Live App URL</span>
+              <div className="bg-white p-2.5 rounded-lg border border-slate-200 text-xs shadow-sm">
+                <span className="text-slate-500 block text-[10px]">Deliverable 4</span>
+                <span className="font-medium font-mono text-emerald-700">Live App URL</span>
               </div>
             </div>
           </div>
 
-          <div className="p-6 sm:p-8 rounded-2xl bg-[#1B2330] border border-slate-800 flex flex-col justify-between">
+          <div className="p-6 sm:p-8 rounded-2xl bg-white border border-slate-200 shadow-sm flex flex-col justify-between">
             <div>
-              <span className="inline-flex items-center space-x-1.5 text-xs font-bold uppercase tracking-wider text-slate-300 bg-slate-800 px-3 py-1 rounded-full border border-slate-700 mb-3">
-                <Layers className="w-3.5 h-3.5 text-purple-400" /> Reference Toolkit
+              <span className="inline-flex items-center space-x-1.5 text-xs font-bold uppercase tracking-wider text-purple-800 bg-purple-100 px-3 py-1 rounded-full border border-purple-200 mb-3">
+                <Layers className="w-3.5 h-3.5 text-purple-600" /> Reference Toolkit
               </span>
-              <h3 className="font-serif text-xl font-bold text-white mb-2">
+              <h3 className="font-serif text-xl font-bold text-slate-900 mb-2">
                 Course Toolkit Summary
               </h3>
-              <p className="text-xs text-slate-400 leading-relaxed mb-4">
+              <p className="text-xs text-slate-600 leading-relaxed mb-4">
                 Reference table covering Windows 11, MS Office, Claude, ChatGPT, Bolt, MongoDB Atlas, GitHub, Vercel Hobby, and Google Jules.
               </p>
             </div>
 
-            <div className="space-y-2 pt-3 border-t border-slate-800 text-xs text-slate-300">
-              <div className="flex justify-between py-1 border-b border-slate-800/50">
+            <div className="space-y-2 pt-3 border-t border-slate-200 text-xs text-slate-700">
+              <div className="flex justify-between py-1 border-b border-slate-100">
                 <span>Vercel + MongoDB Atlas</span>
-                <span className="text-emerald-400 font-semibold">$0 Free Tier</span>
+                <span className="text-emerald-700 font-semibold">$0 Free Tier</span>
               </div>
               <div className="flex justify-between py-1">
                 <span>Google Jules Agent</span>
-                <span className="text-indigo-300 font-semibold">Free Tier</span>
+                <span className="text-indigo-700 font-semibold">Free Tier</span>
               </div>
             </div>
           </div>
@@ -287,46 +287,46 @@ export default function LandingPage() {
       </section>
 
       {/* Access Control & Governance Features */}
-      <section className="py-16 bg-[#1B2330] border-y border-slate-800">
+      <section className="py-16 bg-slate-100/80 border-y border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="flex items-start space-x-4">
-              <div className="w-10 h-10 rounded-lg bg-indigo-500/10 border border-indigo-500/30 flex items-center justify-center shrink-0">
-                <Lock className="w-5 h-5 text-indigo-400" />
+              <div className="w-10 h-10 rounded-lg bg-white border border-slate-200 shadow-sm flex items-center justify-center shrink-0">
+                <Lock className="w-5 h-5 text-indigo-600" />
               </div>
               <div>
-                <h4 className="font-serif text-lg font-bold text-white mb-1">
+                <h4 className="font-serif text-lg font-bold text-slate-900 mb-1">
                   Token Gated Access
                 </h4>
-                <p className="text-xs text-slate-300 leading-relaxed">
+                <p className="text-xs text-slate-600 leading-relaxed">
                   Students can self-register anytime. Accessing course content requires instructor token authorization.
                 </p>
               </div>
             </div>
 
             <div className="flex items-start space-x-4">
-              <div className="w-10 h-10 rounded-lg bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center shrink-0">
-                <CheckCircle2 className="w-5 h-5 text-emerald-400" />
+              <div className="w-10 h-10 rounded-lg bg-white border border-slate-200 shadow-sm flex items-center justify-center shrink-0">
+                <CheckCircle2 className="w-5 h-5 text-emerald-600" />
               </div>
               <div>
-                <h4 className="font-serif text-lg font-bold text-white mb-1">
+                <h4 className="font-serif text-lg font-bold text-slate-900 mb-1">
                   Quiz & Admin Progression
                 </h4>
-                <p className="text-xs text-slate-300 leading-relaxed">
+                <p className="text-xs text-slate-600 leading-relaxed">
                   To move between modules, students pass end-of-module quizzes and receive instructor authorization.
                 </p>
               </div>
             </div>
 
             <div className="flex items-start space-x-4">
-              <div className="w-10 h-10 rounded-lg bg-purple-500/10 border border-purple-500/30 flex items-center justify-center shrink-0">
-                <Shield className="w-5 h-5 text-purple-400" />
+              <div className="w-10 h-10 rounded-lg bg-white border border-slate-200 shadow-sm flex items-center justify-center shrink-0">
+                <Shield className="w-5 h-5 text-purple-600" />
               </div>
               <div>
-                <h4 className="font-serif text-lg font-bold text-white mb-1">
+                <h4 className="font-serif text-lg font-bold text-slate-900 mb-1">
                   Instructor Admin Control
                 </h4>
-                <p className="text-xs text-slate-300 leading-relaxed">
+                <p className="text-xs text-slate-600 leading-relaxed">
                   Dedicated admin portal to manage token access, review quiz scores, and approve student completions.
                 </p>
               </div>
@@ -336,7 +336,7 @@ export default function LandingPage() {
       </section>
 
       {/* Footer */}
-      <footer className="mt-auto py-8 bg-[#0F172A] border-t border-slate-800 text-center text-xs text-slate-500">
+      <footer className="mt-auto py-8 bg-white border-t border-slate-200 text-center text-xs text-slate-500">
         <p>Deploy Websites and Applications for Absolute Beginners &copy; {new Date().getFullYear()}</p>
       </footer>
     </div>
