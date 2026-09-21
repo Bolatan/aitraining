@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+import { ensureDefaultData } from './seed';
 
 const MONGODB_URI = process.env.MONGODB_URI;
 
@@ -18,24 +19,38 @@ if (!global.mongooseCache) {
   global.mongooseCache = cached;
 }
 
+async function connect() {
+  const uri = MONGODB_URI || 'mongodb://127.0.0.1:27017/elearning';
+  const opts = {
+    bufferCommands: false,
+    serverSelectionTimeoutMS: 2000,
+  };
+
+  try {
+    const conn = await mongoose.connect(uri, opts);
+    return conn;
+  } catch {
+    console.warn('Failed to connect to primary MongoDB. Falling back to MongoMemoryServer...');
+    const { MongoMemoryServer } = await import('mongodb-memory-server');
+    const mongod = await MongoMemoryServer.create();
+    const memUri = mongod.getUri();
+    const conn = await mongoose.connect(memUri);
+    return conn;
+  }
+}
+
 export async function connectToDatabase() {
   if (cached.conn) {
     return cached.conn;
   }
 
   if (!cached.promise) {
-    const uri = MONGODB_URI || 'mongodb://127.0.0.1:27017/elearning';
-
-    const opts = {
-      bufferCommands: false,
-      serverSelectionTimeoutMS: 2000,
-    };
-
-    cached.promise = mongoose.connect(uri, opts).then((m) => m);
+    cached.promise = connect();
   }
 
   try {
     cached.conn = await cached.promise;
+    await ensureDefaultData();
   } catch (e) {
     cached.promise = null;
     throw e;
