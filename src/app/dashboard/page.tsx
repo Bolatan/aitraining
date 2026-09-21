@@ -326,7 +326,18 @@ export default function DashboardPage() {
             })}
           </div>
 
-          <div className="pt-4 border-t border-slate-800">
+          <div className="pt-4 border-t border-slate-800 space-y-2">
+            <Link
+              href="/sessions"
+              className="w-full p-3.5 rounded-xl bg-gradient-to-r from-indigo-500/10 to-purple-500/10 border border-indigo-500/30 hover:border-indigo-400 text-indigo-300 flex items-center justify-between transition-colors block text-xs font-semibold"
+            >
+              <div className="flex items-center space-x-2">
+                <Sparkles className="w-4 h-4 text-indigo-400" />
+                <span>Live Sessions & Mentorship</span>
+              </div>
+              <ChevronRight className="w-4 h-4" />
+            </Link>
+
             <Link
               href="/capstone"
               className="w-full p-3.5 rounded-xl bg-gradient-to-r from-amber-500/10 to-purple-500/10 border border-amber-500/30 hover:border-amber-400 text-amber-300 flex items-center justify-between transition-colors block text-xs font-semibold"

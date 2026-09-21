@@ -127,3 +127,77 @@ const CapstoneSubmissionSchema = new Schema<ICapstoneSubmission>({
 export const CapstoneSubmission: Model<ICapstoneSubmission> =
   mongoose.models.CapstoneSubmission ||
   mongoose.model<ICapstoneSubmission>('CapstoneSubmission', CapstoneSubmissionSchema);
+
+export interface ISession extends Document {
+  _id: mongoose.Types.ObjectId;
+  title: string;
+  description?: string;
+  studentId: mongoose.Types.ObjectId;
+  adminId: mongoose.Types.ObjectId;
+  startTime: Date;
+  endTime: Date;
+  status: 'scheduled' | 'ongoing' | 'completed' | 'cancelled';
+  roomId: string;
+  createdAt: Date;
+}
+
+const SessionSchema = new Schema<ISession>({
+  title: { type: String, required: true },
+  description: { type: String, default: '' },
+  studentId: { type: Schema.Types.ObjectId, ref: 'User', required: true },
+  adminId: { type: Schema.Types.ObjectId, ref: 'User', required: true },
+  startTime: { type: Date, required: true },
+  endTime: { type: Date, required: true },
+  status: {
+    type: String,
+    enum: ['scheduled', 'ongoing', 'completed', 'cancelled'],
+    default: 'scheduled',
+  },
+  roomId: { type: String, required: true, unique: true },
+  createdAt: { type: Date, default: Date.now },
+});
+
+export const Session: Model<ISession> =
+  mongoose.models.Session || mongoose.model<ISession>('Session', SessionSchema);
+
+export interface IMessage extends Document {
+  _id: mongoose.Types.ObjectId;
+  sessionId?: mongoose.Types.ObjectId;
+  roomId?: string;
+  senderId: mongoose.Types.ObjectId;
+  receiverId?: mongoose.Types.ObjectId;
+  content: string;
+  createdAt: Date;
+}
+
+const MessageSchema = new Schema<IMessage>({
+  sessionId: { type: Schema.Types.ObjectId, ref: 'Session' },
+  roomId: { type: String },
+  senderId: { type: Schema.Types.ObjectId, ref: 'User', required: true },
+  receiverId: { type: Schema.Types.ObjectId, ref: 'User' },
+  content: { type: String, required: true },
+  createdAt: { type: Date, default: Date.now },
+});
+
+export const Message: Model<IMessage> =
+  mongoose.models.Message || mongoose.model<IMessage>('Message', MessageSchema);
+
+export interface ISignal extends Document {
+  _id: mongoose.Types.ObjectId;
+  roomId: string;
+  senderId: mongoose.Types.ObjectId;
+  type: 'offer' | 'answer' | 'candidate';
+  data: string;
+  createdAt: Date;
+}
+
+const SignalSchema = new Schema<ISignal>({
+  roomId: { type: String, required: true },
+  senderId: { type: Schema.Types.ObjectId, ref: 'User', required: true },
+  type: { type: String, enum: ['offer', 'answer', 'candidate'], required: true },
+  data: { type: String, required: true },
+  createdAt: { type: Date, default: Date.now, expires: 3600 }, // Auto expire signals after 1 hour
+});
+
+export const Signal: Model<ISignal> =
+  mongoose.models.Signal || mongoose.model<ISignal>('Signal', SignalSchema);

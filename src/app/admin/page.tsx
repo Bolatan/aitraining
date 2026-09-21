@@ -344,6 +344,14 @@ export default function AdminPage() {
           </div>
 
           <div className="flex items-center space-x-2">
+            <a
+              href="/sessions"
+              className="px-3.5 py-2 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold shadow-md flex items-center space-x-1.5 transition-colors"
+            >
+              <ShieldCheck className="w-3.5 h-3.5" />
+              <span>Schedule Mentorship Sessions</span>
+            </a>
+
             <button
               onClick={() => {
                 fetchUsers();
