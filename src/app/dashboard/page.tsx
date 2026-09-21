@@ -1,8 +1,9 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import {
   BookOpen,
   CheckCircle2,
@@ -55,6 +56,7 @@ interface IProgressRecord {
 }
 
 export default function DashboardPage() {
+  const router = useRouter();
   const [user, setUser] = useState<{
     id: string;
     name: string;
@@ -79,45 +81,55 @@ export default function DashboardPage() {
   const [actionError, setActionError] = useState('');
   const [actionSuccess, setActionSuccess] = useState('');
 
-  const fetchData = useCallback(async () => {
-    try {
-      const authRes = await fetch('/api/auth/me');
-      if (!authRes.ok) {
-        window.location.href = '/login';
-        return;
-      }
-      const authData = await authRes.json();
-      setUser(authData.user);
+  useEffect(() => {
+    let ignore = false;
+    async function loadData() {
+      try {
+        const authRes = await fetch('/api/auth/me');
+        if (!authRes.ok) {
+          router.push('/login');
+          return;
+        }
+        const authData = await authRes.json();
+        if (ignore) return;
+        setUser(authData.user);
 
-      const modulesRes = await fetch('/api/modules');
-      const modulesData = await modulesRes.json();
-      setModules(modulesData.modules || []);
+        const modulesRes = await fetch('/api/modules');
+        const modulesData = await modulesRes.json();
+        if (ignore) return;
+        setModules(modulesData.modules || []);
 
-      if (modulesData.modules && modulesData.modules.length > 0) {
-        setSelectedSlug(modulesData.modules[0].slug);
-      }
+        if (modulesData.modules && modulesData.modules.length > 0) {
+          setSelectedSlug(modulesData.modules[0].slug);
+        }
 
-      if (authData.user.isAuthorized || authData.user.isAdmin) {
-        const progRes = await fetch('/api/progress');
-        if (progRes.ok) {
-          const progData = await progRes.json();
-          const progMap: Record<string, IProgressRecord> = {};
-          (progData.progress || []).forEach((p: IProgressRecord) => {
-            progMap[p.moduleId] = p;
-          });
-          setProgress(progMap);
+        if (authData.user.isAuthorized || authData.user.isAdmin) {
+          const progRes = await fetch('/api/progress');
+          if (progRes.ok) {
+            const progData = await progRes.json();
+            const progMap: Record<string, IProgressRecord> = {};
+            (progData.progress || []).forEach((p: IProgressRecord) => {
+              progMap[p.moduleId] = p;
+            });
+            if (ignore) return;
+            setProgress(progMap);
+          }
+        }
+      } catch (err) {
+        console.error(err);
+      } finally {
+        if (!ignore) {
+          setLoading(false);
         }
       }
-    } catch (err) {
-      console.error(err);
-    } finally {
-      setLoading(false);
     }
-  }, []);
 
-  useEffect(() => {
-    fetchData();
-  }, [fetchData]);
+    loadData();
+
+    return () => {
+      ignore = true;
+    };
+  }, [router]);
 
   const selectedModule = modules.find((m) => m.slug === selectedSlug);
   const selectedProgress = selectedModule ? progress[selectedModule._id] : undefined;

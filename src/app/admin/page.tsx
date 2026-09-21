@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import Navbar from '@/components/Navbar';
+import { useRouter } from 'next/navigation';
 import {
   ShieldCheck,
   Key,
@@ -52,6 +53,7 @@ interface IUserAdmin {
 }
 
 export default function AdminPage() {
+  const router = useRouter();
   const [users, setUsers] = useState<IUserAdmin[]>([]);
   const [modules, setModules] = useState<IModule[]>([]);
   const [loading, setLoading] = useState(true);
@@ -65,7 +67,7 @@ export default function AdminPage() {
       setError('');
       const res = await fetch('/api/admin/users');
       if (res.status === 403) {
-        window.location.href = '/dashboard';
+        router.push('/dashboard');
         return;
       }
       const data = await res.json();
@@ -81,11 +83,42 @@ export default function AdminPage() {
     } finally {
       setLoading(false);
     }
-  }, []);
+  }, [router]);
 
   useEffect(() => {
-    fetchUsers();
-  }, [fetchUsers]);
+    let ignore = false;
+    async function load() {
+      try {
+        setError('');
+        const res = await fetch('/api/admin/users');
+        if (res.status === 403) {
+          router.push('/dashboard');
+          return;
+        }
+        const data = await res.json();
+        if (!res.ok) {
+          throw new Error(data.error || 'Failed to load admin data');
+        }
+        if (ignore) return;
+        setUsers(data.users || []);
+        setModules(data.modules || []);
+      } catch (err: unknown) {
+        if (!ignore && err instanceof Error) {
+          setError(err.message);
+        }
+      } finally {
+        if (!ignore) {
+          setLoading(false);
+        }
+      }
+    }
+
+    load();
+
+    return () => {
+      ignore = true;
+    };
+  }, [router]);
 
   const handleToggleToken = async (userId: string, currentStatus: boolean) => {
     setActionLoading(`token-${userId}`);
