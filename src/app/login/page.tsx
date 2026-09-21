@@ -117,11 +117,6 @@ export default function LoginPage() {
             </button>
           </form>
 
-          <div className="bg-slate-900/60 p-3 rounded-lg border border-slate-800 text-[11px] text-slate-400 flex items-center justify-between">
-            <span>Admin Demo Account:</span>
-            <span className="font-mono text-amber-300">admin@elearning.com / admin123456</span>
-          </div>
-
           <p className="text-center text-xs text-slate-400">
             Don&apos;t have an account?{' '}
             <Link href="/signup" className="text-indigo-400 font-semibold hover:underline">
