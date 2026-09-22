@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter, usePathname } from 'next/navigation';
-import { BookOpen, ShieldCheck, LogOut, Key, CheckCircle, LayoutDashboard, Award } from 'lucide-react';
+import { BookOpen, ShieldCheck, LogOut, Key, CheckCircle, LayoutDashboard, Award, Calendar } from 'lucide-react';
 
 export default function Navbar() {
   const [user, setUser] = useState<{ name: string; email: string; isAdmin: boolean; isAuthorized: boolean } | null>(null);
@@ -79,6 +79,16 @@ export default function Navbar() {
                 >
                   <Award className="w-4 h-4 text-amber-400" />
                   <span>Capstone</span>
+                </Link>
+
+                <Link
+                  href="/sessions"
+                  className={`text-sm font-medium flex items-center space-x-1.5 transition-colors ${
+                    pathname.startsWith('/sessions') ? 'text-indigo-400 font-semibold' : 'text-slate-300 hover:text-white'
+                  }`}
+                >
+                  <Calendar className="w-4 h-4 text-indigo-400" />
+                  <span>Sessions & Meet</span>
                 </Link>
 
                 {user.isAdmin && (
