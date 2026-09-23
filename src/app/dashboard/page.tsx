@@ -79,6 +79,11 @@ export default function DashboardPage() {
   const [actionError, setActionError] = useState('');
   const [actionSuccess, setActionSuccess] = useState('');
 
+  const [tokenInput, setTokenInput] = useState('');
+  const [tokenSubmitting, setTokenSubmitting] = useState(false);
+  const [tokenError, setTokenError] = useState('');
+  const [tokenSuccess, setTokenSuccess] = useState('');
+
   const fetchData = useCallback(async () => {
     try {
       const authRes = await fetch('/api/auth/me');
@@ -210,6 +215,43 @@ export default function DashboardPage() {
       if (err instanceof Error) {
         setActionError(err.message);
       }
+    }
+  };
+
+  const handleTokenSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!tokenInput.trim()) {
+      setTokenError('Please enter an authorization token');
+      return;
+    }
+    setTokenSubmitting(true);
+    setTokenError('');
+    setTokenSuccess('');
+
+    try {
+      const res = await fetch('/api/auth/token', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ token: tokenInput.trim() }),
+      });
+
+      const data = await res.json();
+      if (!res.ok) {
+        throw new Error(data.error || 'Invalid token');
+      }
+
+      setTokenSuccess(data.message || 'Authorization token accepted!');
+      if (user) {
+        setUser({ ...user, isAuthorized: true });
+      }
+      window.dispatchEvent(new Event('user-updated'));
+      fetchData();
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        setTokenError(err.message);
+      }
+    } finally {
+      setTokenSubmitting(false);
     }
   };
 
@@ -370,11 +412,47 @@ export default function DashboardPage() {
                 </p>
               </div>
 
-              <div className="bg-slate-900/80 p-4 rounded-xl border border-slate-800 text-xs text-slate-400 text-left space-y-2 font-mono">
-                <p className="text-slate-300 font-semibold font-sans">How to activate access:</p>
-                <p>1. Contact the instructor to approve your account token.</p>
-                <p>2. Once granted, refresh this page to unlock all module contents & quizzes.</p>
-              </div>
+              <form onSubmit={handleTokenSubmit} className="space-y-3 bg-slate-900/80 p-5 rounded-2xl border border-slate-800 text-left">
+                <label className="text-xs font-semibold text-slate-200 block">
+                  Enter Authorization Token
+                </label>
+                <div className="flex flex-col sm:flex-row gap-2">
+                  <input
+                    type="text"
+                    value={tokenInput}
+                    onChange={(e) => setTokenInput(e.target.value)}
+                    placeholder="e.g. COURSE2025"
+                    className="flex-1 px-3.5 py-2.5 rounded-xl bg-[#1B2330] border border-slate-700 text-xs text-white placeholder-slate-500 focus:outline-none focus:ring-1 focus:ring-amber-500 uppercase tracking-wider font-mono"
+                  />
+                  <button
+                    type="submit"
+                    disabled={tokenSubmitting}
+                    className="px-5 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs shadow-md transition-colors flex items-center justify-center space-x-1.5 shrink-0 disabled:opacity-50 cursor-pointer"
+                  >
+                    <Key className="w-4 h-4" />
+                    <span>{tokenSubmitting ? 'Verifying...' : 'Submit Token'}</span>
+                  </button>
+                </div>
+
+                {tokenError && (
+                  <p className="text-xs text-rose-400 font-mono flex items-center space-x-1 pt-1">
+                    <AlertCircle className="w-3.5 h-3.5 shrink-0" />
+                    <span>{tokenError}</span>
+                  </p>
+                )}
+                {tokenSuccess && (
+                  <p className="text-xs text-emerald-400 font-mono flex items-center space-x-1 pt-1">
+                    <CheckCircle2 className="w-3.5 h-3.5 shrink-0" />
+                    <span>{tokenSuccess}</span>
+                  </p>
+                )}
+
+                <div className="pt-2 text-[11px] text-slate-400 font-mono space-y-1 border-t border-slate-800/80 mt-3">
+                  <p className="text-slate-300 font-sans font-semibold">How to activate access:</p>
+                  <p>• Enter an authorization token granted by your instructor (e.g. COURSE2025).</p>
+                  <p>• Alternatively, contact your instructor to approve your account directly.</p>
+                </div>
+              </form>
             </div>
           ) : !selectedModule ? (
             <div className="py-12 text-center text-slate-400 text-sm">

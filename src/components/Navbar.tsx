@@ -12,17 +12,26 @@ export default function Navbar() {
   const pathname = usePathname();
 
   useEffect(() => {
-    fetch('/api/auth/me')
-      .then((res) => (res.ok ? res.json() : null))
-      .then((data) => {
-        if (data && data.authenticated) {
-          setUser(data.user);
-        } else {
-          setUser(null);
-        }
-      })
-      .catch(() => setUser(null))
-      .finally(() => setLoading(false));
+    const checkAuth = () => {
+      fetch('/api/auth/me')
+        .then((res) => (res.ok ? res.json() : null))
+        .then((data) => {
+          if (data && data.authenticated) {
+            setUser(data.user);
+          } else {
+            setUser(null);
+          }
+        })
+        .catch(() => setUser(null))
+        .finally(() => setLoading(false));
+    };
+
+    checkAuth();
+
+    window.addEventListener('user-updated', checkAuth);
+    return () => {
+      window.removeEventListener('user-updated', checkAuth);
+    };
   }, [pathname]);
 
   const handleLogout = async () => {
