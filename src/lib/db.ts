@@ -43,7 +43,8 @@ export async function seedDefaultData() {
     }
 
     const count = await ModuleModel.countDocuments();
-    if (count === 0) {
+    if (count < modulesData.length) {
+      await ModuleModel.deleteMany({});
       await ModuleModel.insertMany(modulesData);
       console.log(`Auto-seeded ${modulesData.length} course modules.`);
     }
