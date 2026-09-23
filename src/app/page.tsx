@@ -27,7 +27,7 @@ export default function LandingPage() {
       badgeBg: 'bg-[#5C4A72]',
       icon: Monitor,
       desc: 'Master OS navigation, Taskbar, File Explorer, Quick Settings, and essential Windows 11 keyboard shortcuts.',
-      time: '1.5 hrs',
+      time: '~2 hrs',
     },
     {
       num: 2,
@@ -38,7 +38,7 @@ export default function LandingPage() {
       badgeBg: 'bg-[#2E5C8A]',
       icon: FileSpreadsheet,
       desc: 'Draft PRDs in Word with Styles, construct budgets in Excel with SUM/XLOOKUP, and build PowerPoint pitch decks.',
-      time: '4 hrs',
+      time: '~5 hrs',
     },
     {
       num: 3,
@@ -124,7 +124,7 @@ export default function LandingPage() {
               <span className="text-xs text-slate-400">Capstone Project</span>
             </div>
             <div className="p-3.5 rounded-lg bg-slate-900/60 border border-slate-800">
-              <span className="text-2xl font-bold text-emerald-400 block">~10.5 hrs</span>
+              <span className="text-2xl font-bold text-emerald-400 block">~12 hrs</span>
               <span className="text-xs text-slate-400">Total, Self-Paced</span>
             </div>
             <div className="p-3.5 rounded-lg bg-slate-900/60 border border-slate-800">
