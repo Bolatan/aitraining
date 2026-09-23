@@ -42,18 +42,18 @@ export default function Navbar() {
   };
 
   return (
-    <header className="bg-[#1B2330] border-b border-slate-800 text-white sticky top-0 z-50 backdrop-blur-md bg-opacity-95">
+    <header className="bg-white border-b border-slate-200 text-slate-800 sticky top-0 z-50 backdrop-blur-md bg-opacity-95 shadow-xs">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <Link href="/" className="flex items-center space-x-3 group">
-            <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center font-bold text-white shadow-md group-hover:scale-105 transition-transform">
+            <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-indigo-600 to-purple-600 flex items-center justify-center font-bold text-white shadow-md group-hover:scale-105 transition-transform">
               <BookOpen className="w-5 h-5 text-white" />
             </div>
             <div>
-              <span className="font-serif text-lg font-bold tracking-tight text-white block">
+              <span className="font-serif text-lg font-bold tracking-tight text-slate-900 block">
                 Deploy Web Apps
               </span>
-              <span className="text-[10px] text-slate-400 block -mt-1 font-mono tracking-wider uppercase">
+              <span className="text-[10px] text-slate-500 block -mt-1 font-mono tracking-wider uppercase">
                 Absolute Beginners
               </span>
             </div>
@@ -63,7 +63,7 @@ export default function Navbar() {
             <Link
               href="/"
               className={`text-sm font-medium transition-colors ${
-                pathname === '/' ? 'text-indigo-400 font-semibold' : 'text-slate-300 hover:text-white'
+                pathname === '/' ? 'text-indigo-600 font-semibold' : 'text-slate-600 hover:text-slate-900'
               }`}
             >
               Curriculum
@@ -73,7 +73,7 @@ export default function Navbar() {
                 <Link
                   href="/dashboard"
                   className={`text-sm font-medium flex items-center space-x-1.5 transition-colors ${
-                    pathname.startsWith('/dashboard') ? 'text-indigo-400 font-semibold' : 'text-slate-300 hover:text-white'
+                    pathname.startsWith('/dashboard') ? 'text-indigo-600 font-semibold' : 'text-slate-600 hover:text-slate-900'
                   }`}
                 >
                   <LayoutDashboard className="w-4 h-4" />
@@ -83,31 +83,31 @@ export default function Navbar() {
                 <Link
                   href="/capstone"
                   className={`text-sm font-medium flex items-center space-x-1.5 transition-colors ${
-                    pathname.startsWith('/capstone') ? 'text-indigo-400 font-semibold' : 'text-slate-300 hover:text-white'
+                    pathname.startsWith('/capstone') ? 'text-indigo-600 font-semibold' : 'text-slate-600 hover:text-slate-900'
                   }`}
                 >
-                  <Award className="w-4 h-4 text-amber-400" />
+                  <Award className="w-4 h-4 text-amber-600" />
                   <span>Capstone</span>
                 </Link>
 
                 <Link
                   href="/sessions"
                   className={`text-sm font-medium flex items-center space-x-1.5 transition-colors ${
-                    pathname.startsWith('/sessions') ? 'text-indigo-400 font-semibold' : 'text-slate-300 hover:text-white'
+                    pathname.startsWith('/sessions') ? 'text-indigo-600 font-semibold' : 'text-slate-600 hover:text-slate-900'
                   }`}
                 >
-                  <Calendar className="w-4 h-4 text-indigo-400" />
+                  <Calendar className="w-4 h-4 text-indigo-600" />
                   <span>Sessions & Meet</span>
                 </Link>
 
                 {user.isAdmin && (
                   <Link
                     href="/admin"
-                    className={`text-sm font-medium px-2.5 py-1 rounded-md border text-amber-300 border-amber-500/30 bg-amber-500/10 flex items-center space-x-1.5 hover:bg-amber-500/20 transition-colors ${
+                    className={`text-sm font-medium px-2.5 py-1 rounded-md border text-amber-800 border-amber-300 bg-amber-50 flex items-center space-x-1.5 hover:bg-amber-100 transition-colors ${
                       pathname.startsWith('/admin') ? 'ring-2 ring-amber-400' : ''
                     }`}
                   >
-                    <ShieldCheck className="w-4 h-4 text-amber-400" />
+                    <ShieldCheck className="w-4 h-4 text-amber-600" />
                     <span>Admin Panel</span>
                   </Link>
                 )}
@@ -117,18 +117,18 @@ export default function Navbar() {
 
           <div className="flex items-center space-x-3">
             {loading ? (
-              <div className="w-20 h-8 bg-slate-800 animate-pulse rounded-md" />
+              <div className="w-20 h-8 bg-slate-200 animate-pulse rounded-md" />
             ) : user ? (
               <div className="flex items-center space-x-3">
                 <div className="hidden sm:flex flex-col text-right">
-                  <span className="text-xs font-semibold text-slate-200">{user.name}</span>
-                  <span className="text-[11px] text-slate-400 flex items-center justify-end space-x-1">
+                  <span className="text-xs font-semibold text-slate-800">{user.name}</span>
+                  <span className="text-[11px] text-slate-500 flex items-center justify-end space-x-1">
                     {user.isAuthorized ? (
-                      <span className="text-emerald-400 flex items-center space-x-1">
+                      <span className="text-emerald-600 flex items-center space-x-1 font-medium">
                         <CheckCircle className="w-3 h-3" /> Token Active
                       </span>
                     ) : (
-                      <span className="text-amber-400 flex items-center space-x-1">
+                      <span className="text-amber-600 flex items-center space-x-1 font-medium">
                         <Key className="w-3 h-3" /> Token Pending
                       </span>
                     )}
@@ -136,7 +136,7 @@ export default function Navbar() {
                 </div>
                 <button
                   onClick={handleLogout}
-                  className="px-3 py-1.5 text-xs font-medium text-slate-300 hover:text-white bg-slate-800 hover:bg-slate-700 rounded-md border border-slate-700 transition-colors flex items-center space-x-1"
+                  className="px-3 py-1.5 text-xs font-medium text-slate-700 hover:text-slate-900 bg-slate-100 hover:bg-slate-200 rounded-md border border-slate-300 transition-colors flex items-center space-x-1"
                 >
                   <LogOut className="w-3.5 h-3.5" />
                   <span>Logout</span>
@@ -146,7 +146,7 @@ export default function Navbar() {
               <div className="flex items-center space-x-2">
                 <Link
                   href="/login"
-                  className="px-3.5 py-1.5 text-sm font-medium text-slate-300 hover:text-white transition-colors"
+                  className="px-3.5 py-1.5 text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors"
                 >
                   Sign In
                 </Link>
