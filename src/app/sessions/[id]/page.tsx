@@ -17,7 +17,6 @@ import {
   Clock,
   ArrowLeft,
   AlertCircle,
-  CheckCircle2,
   ShieldCheck,
 } from 'lucide-react';
 
@@ -391,12 +390,12 @@ export default function MeetingRoomPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-[#0F172A] text-slate-100 flex flex-col font-sans">
+      <div className="min-h-screen bg-slate-50 text-slate-800 flex flex-col font-sans">
         <Navbar />
         <div className="flex-1 flex items-center justify-center">
           <div className="text-center space-y-3">
-            <div className="w-10 h-10 border-4 border-indigo-500 border-t-transparent rounded-full animate-spin mx-auto" />
-            <p className="text-sm text-slate-400 font-mono">Loading Video Meeting Room...</p>
+            <div className="w-10 h-10 border-4 border-indigo-600 border-t-transparent rounded-full animate-spin mx-auto" />
+            <p className="text-sm text-slate-500 font-mono">Loading Video Meeting Room...</p>
           </div>
         </div>
       </div>
@@ -405,18 +404,18 @@ export default function MeetingRoomPage() {
 
   if (!session) {
     return (
-      <div className="min-h-screen bg-[#0F172A] text-slate-100 flex flex-col font-sans">
+      <div className="min-h-screen bg-slate-50 text-slate-800 flex flex-col font-sans">
         <Navbar />
         <div className="flex-1 max-w-xl mx-auto flex items-center justify-center p-6 text-center space-y-4">
-          <div className="bg-[#1B2330] p-8 rounded-2xl border border-slate-800 space-y-4">
-            <AlertCircle className="w-12 h-12 text-rose-400 mx-auto" />
-            <h2 className="font-serif text-xl font-bold text-white">Session Not Found</h2>
-            <p className="text-xs text-slate-400">
+          <div className="bg-white p-8 rounded-2xl border border-slate-200 shadow-xl space-y-4">
+            <AlertCircle className="w-12 h-12 text-rose-600 mx-auto" />
+            <h2 className="font-serif text-xl font-bold text-slate-900">Session Not Found</h2>
+            <p className="text-xs text-slate-500">
               The scheduled meeting session you are trying to access does not exist or has been removed.
             </p>
             <Link
               href="/sessions"
-              className="inline-flex items-center space-x-1.5 px-4 py-2 bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold rounded-xl transition-colors"
+              className="inline-flex items-center space-x-1.5 px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold rounded-xl transition-colors"
             >
               <ArrowLeft className="w-4 h-4" />
               <span>Back to Sessions Calendar</span>
@@ -428,36 +427,36 @@ export default function MeetingRoomPage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#0F172A] text-slate-100 flex flex-col font-sans">
+    <div className="min-h-screen bg-slate-50 text-slate-800 flex flex-col font-sans">
       <Navbar />
 
       <div className="flex-1 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-6 space-y-4 flex flex-col">
         {/* Room Header */}
-        <div className="bg-[#1B2330] p-4 rounded-2xl border border-slate-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-lg">
+        <div className="bg-white p-4 rounded-2xl border border-slate-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-xs">
           <div className="flex items-center space-x-3">
             <Link
               href="/sessions"
-              className="p-2 bg-slate-900 hover:bg-slate-800 rounded-xl text-slate-300 border border-slate-800 transition-colors"
+              className="p-2 bg-slate-100 hover:bg-slate-200 rounded-xl text-slate-700 border border-slate-200 transition-colors"
               title="Return to Schedule"
             >
               <ArrowLeft className="w-4 h-4" />
             </Link>
             <div>
               <div className="flex items-center space-x-2">
-                <h1 className="font-serif text-lg font-bold text-white">{session.title}</h1>
-                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-indigo-500/20 border border-indigo-500/30 text-indigo-300">
+                <h1 className="font-serif text-lg font-bold text-slate-900">{session.title}</h1>
+                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-indigo-100 border border-indigo-200 text-indigo-800 font-semibold">
                   Room: {session.roomId}
                 </span>
               </div>
-              <p className="text-xs text-slate-400 flex items-center space-x-3 mt-0.5 font-mono">
+              <p className="text-xs text-slate-500 flex items-center space-x-3 mt-0.5 font-mono">
                 <span className="flex items-center space-x-1">
-                  <Users className="w-3 h-3 text-emerald-400" />
+                  <Users className="w-3 h-3 text-emerald-600" />
                   <span>
                     Student: {session.studentId?.name} | Instructor: {session.adminId?.name}
                   </span>
                 </span>
                 <span className="flex items-center space-x-1">
-                  <Clock className="w-3 h-3 text-amber-400" />
+                  <Clock className="w-3 h-3 text-amber-600" />
                   <span>
                     {new Date(session.startTime).toLocaleTimeString([], {
                       hour: '2-digit',
@@ -471,17 +470,17 @@ export default function MeetingRoomPage() {
 
           <div className="flex items-center space-x-2">
             {isPeerConnected ? (
-              <span className="px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-xs font-bold flex items-center space-x-1.5">
-                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
+              <span className="px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-300 text-xs font-bold flex items-center space-x-1.5">
+                <span className="w-2 h-2 rounded-full bg-emerald-600 animate-ping" />
                 <span>Peer Connected</span>
               </span>
             ) : callStarted ? (
-              <span className="px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30 text-xs font-bold flex items-center space-x-1.5">
-                <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
+              <span className="px-3 py-1 rounded-full bg-amber-100 text-amber-800 border border-amber-300 text-xs font-bold flex items-center space-x-1.5">
+                <span className="w-2 h-2 rounded-full bg-amber-600 animate-pulse" />
                 <span>Waiting for Peer...</span>
               </span>
             ) : (
-              <span className="px-3 py-1 rounded-full bg-slate-800 text-slate-400 border border-slate-700 text-xs font-mono">
+              <span className="px-3 py-1 rounded-full bg-slate-100 text-slate-600 border border-slate-200 text-xs font-mono">
                 Meeting Ready
               </span>
             )}
@@ -489,8 +488,8 @@ export default function MeetingRoomPage() {
         </div>
 
         {error && (
-          <div className="p-3.5 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-300 text-xs flex items-center space-x-2">
-            <AlertCircle className="w-4 h-4 shrink-0 text-rose-400" />
+          <div className="p-3.5 rounded-xl bg-rose-50 border border-rose-200 text-rose-800 text-xs flex items-center space-x-2">
+            <AlertCircle className="w-4 h-4 shrink-0 text-rose-600" />
             <span>{error}</span>
           </div>
         )}
@@ -498,33 +497,33 @@ export default function MeetingRoomPage() {
         {/* Video Stage + Chat Sidebar Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 flex-1 min-h-[500px]">
           {/* Main Video View Area */}
-          <div className="lg:col-span-2 bg-[#1B2330] p-4 rounded-2xl border border-slate-800 flex flex-col justify-between shadow-xl relative overflow-hidden">
+          <div className="lg:col-span-2 bg-white p-4 rounded-2xl border border-slate-200 flex flex-col justify-between shadow-xs relative overflow-hidden">
             {!callStarted ? (
               <div className="m-auto text-center space-y-5 max-w-md py-12">
-                <div className="w-16 h-16 rounded-full bg-indigo-600/20 border border-indigo-500/30 flex items-center justify-center mx-auto text-indigo-400 shadow-xl">
+                <div className="w-16 h-16 rounded-full bg-indigo-50 border border-indigo-200 flex items-center justify-center mx-auto text-indigo-600 shadow-md">
                   <Video className="w-8 h-8" />
                 </div>
                 <div>
-                  <h2 className="font-serif text-xl font-bold text-white">
+                  <h2 className="font-serif text-xl font-bold text-slate-900">
                     Ready to Join Video Meeting?
                   </h2>
-                  <p className="text-xs text-slate-400 mt-1">
+                  <p className="text-xs text-slate-500 mt-1">
                     Connect your camera and microphone to start the WebRTC video session with your mentor/student.
                   </p>
                 </div>
 
                 <button
                   onClick={startVideoCall}
-                  className="px-6 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs shadow-xl transition-all inline-flex items-center space-x-2"
+                  className="px-6 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs shadow-md transition-all inline-flex items-center space-x-2"
                 >
                   <Video className="w-4 h-4" />
                   <span>Start Camera & Join Call</span>
                 </button>
               </div>
             ) : (
-              <div className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-4 items-center min-h-[380px] bg-slate-950 p-3 rounded-xl border border-slate-800">
+              <div className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-4 items-center min-h-[380px] bg-slate-900 p-3 rounded-xl border border-slate-800">
                 {/* Local Video Stream */}
-                <div className="relative rounded-xl overflow-hidden bg-slate-900 border border-slate-800 aspect-video flex items-center justify-center">
+                <div className="relative rounded-xl overflow-hidden bg-slate-950 border border-slate-800 aspect-video flex items-center justify-center">
                   <video
                     ref={localVideoRef}
                     autoPlay
@@ -539,7 +538,7 @@ export default function MeetingRoomPage() {
                 </div>
 
                 {/* Remote Video Stream */}
-                <div className="relative rounded-xl overflow-hidden bg-slate-900 border border-slate-800 aspect-video flex items-center justify-center">
+                <div className="relative rounded-xl overflow-hidden bg-slate-950 border border-slate-800 aspect-video flex items-center justify-center">
                   <video
                     ref={remoteVideoRef}
                     autoPlay
@@ -547,7 +546,7 @@ export default function MeetingRoomPage() {
                     className="w-full h-full object-cover rounded-xl"
                   />
                   {!isPeerConnected && (
-                    <div className="absolute inset-0 bg-slate-900/90 flex flex-col items-center justify-center space-y-2 p-4 text-center">
+                    <div className="absolute inset-0 bg-slate-950/90 flex flex-col items-center justify-center space-y-2 p-4 text-center">
                       <div className="w-8 h-8 border-3 border-indigo-500 border-t-transparent rounded-full animate-spin" />
                       <p className="text-xs text-slate-400 font-mono">
                         Waiting for peer to connect...
@@ -567,13 +566,13 @@ export default function MeetingRoomPage() {
 
             {/* Call Controls Bar */}
             {callStarted && (
-              <div className="pt-4 mt-4 border-t border-slate-800 flex items-center justify-center space-x-3">
+              <div className="pt-4 mt-4 border-t border-slate-200 flex items-center justify-center space-x-3">
                 <button
                   onClick={toggleAudio}
                   className={`p-3 rounded-xl border text-xs font-semibold transition-all ${
                     isAudioMuted
-                      ? 'bg-rose-500/20 border-rose-500/40 text-rose-300'
-                      : 'bg-slate-800 hover:bg-slate-700 border-slate-700 text-slate-200'
+                      ? 'bg-rose-50 border-rose-200 text-rose-700'
+                      : 'bg-slate-100 hover:bg-slate-200 border-slate-200 text-slate-700'
                   }`}
                   title={isAudioMuted ? 'Unmute Audio' : 'Mute Audio'}
                 >
@@ -584,8 +583,8 @@ export default function MeetingRoomPage() {
                   onClick={toggleVideo}
                   className={`p-3 rounded-xl border text-xs font-semibold transition-all ${
                     isVideoOff
-                      ? 'bg-rose-500/20 border-rose-500/40 text-rose-300'
-                      : 'bg-slate-800 hover:bg-slate-700 border-slate-700 text-slate-200'
+                      ? 'bg-rose-50 border-rose-200 text-rose-700'
+                      : 'bg-slate-100 hover:bg-slate-200 border-slate-200 text-slate-700'
                   }`}
                   title={isVideoOff ? 'Turn Camera On' : 'Turn Camera Off'}
                 >
@@ -596,8 +595,8 @@ export default function MeetingRoomPage() {
                   onClick={toggleScreenShare}
                   className={`p-3 rounded-xl border text-xs font-semibold transition-all ${
                     isScreenSharing
-                      ? 'bg-indigo-600 border-indigo-500 text-white'
-                      : 'bg-slate-800 hover:bg-slate-700 border-slate-700 text-slate-200'
+                      ? 'bg-indigo-600 border-indigo-600 text-white'
+                      : 'bg-slate-100 hover:bg-slate-200 border-slate-200 text-slate-700'
                   }`}
                   title="Share Screen"
                 >
@@ -606,7 +605,7 @@ export default function MeetingRoomPage() {
 
                 <button
                   onClick={handleEndCall}
-                  className="px-5 py-3 rounded-xl bg-rose-600 hover:bg-rose-500 text-white font-bold text-xs shadow-lg transition-colors flex items-center space-x-1.5"
+                  className="px-5 py-3 rounded-xl bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs shadow-md transition-colors flex items-center space-x-1.5"
                   title="Leave / End Video Call"
                 >
                   <PhoneOff className="w-5 h-5" />
@@ -617,19 +616,19 @@ export default function MeetingRoomPage() {
           </div>
 
           {/* In-Meeting Live Chat Sidebar */}
-          <div className="bg-[#1B2330] rounded-2xl border border-slate-800 flex flex-col justify-between shadow-xl overflow-hidden">
-            <div className="p-4 border-b border-slate-800 bg-slate-900/40 flex items-center space-x-2">
-              <MessageSquare className="w-4 h-4 text-indigo-400" />
-              <h3 className="font-serif font-bold text-white text-xs">
+          <div className="bg-white rounded-2xl border border-slate-200 flex flex-col justify-between shadow-xs overflow-hidden">
+            <div className="p-4 border-b border-slate-200 bg-slate-50/50 flex items-center space-x-2">
+              <MessageSquare className="w-4 h-4 text-indigo-600" />
+              <h3 className="font-serif font-bold text-slate-900 text-xs">
                 In-Meeting Live Chat
               </h3>
             </div>
 
             <div className="p-4 flex-1 overflow-y-auto space-y-3 max-h-[380px]">
               {messages.length === 0 ? (
-                <div className="py-12 text-center text-slate-500 text-xs font-mono space-y-1">
+                <div className="py-12 text-center text-slate-400 text-xs font-mono space-y-1">
                   <p>No messages in this session yet.</p>
-                  <p className="text-[10px] text-slate-600">Send a text message below!</p>
+                  <p className="text-[10px] text-slate-400">Send a text message below!</p>
                 </div>
               ) : (
                 messages.map((m) => {
@@ -640,13 +639,13 @@ export default function MeetingRoomPage() {
                       className={`flex flex-col ${isMe ? 'items-end' : 'items-start'}`}
                     >
                       <div className="flex items-center space-x-1 mb-0.5 px-1">
-                        <span className="text-[10px] text-slate-400 font-semibold flex items-center space-x-1">
+                        <span className="text-[10px] text-slate-500 font-semibold flex items-center space-x-1">
                           <span>{m.senderId?.name}</span>
                           {m.senderId?.isAdmin && (
-                            <ShieldCheck className="w-3 h-3 text-amber-400 inline" />
+                            <ShieldCheck className="w-3 h-3 text-amber-600 inline" />
                           )}
                         </span>
-                        <span className="text-[9px] text-slate-500 font-mono">
+                        <span className="text-[9px] text-slate-400 font-mono">
                           {new Date(m.createdAt).toLocaleTimeString([], {
                             hour: '2-digit',
                             minute: '2-digit',
@@ -656,8 +655,8 @@ export default function MeetingRoomPage() {
                       <div
                         className={`p-2.5 rounded-2xl text-xs leading-relaxed max-w-[220px] ${
                           isMe
-                            ? 'bg-indigo-600 text-white rounded-br-none shadow-sm'
-                            : 'bg-slate-900 text-slate-200 rounded-bl-none border border-slate-800'
+                            ? 'bg-indigo-600 text-white rounded-br-none shadow-2xs'
+                            : 'bg-slate-100 text-slate-800 rounded-bl-none border border-slate-200'
                         }`}
                       >
                         {m.content}
@@ -671,19 +670,19 @@ export default function MeetingRoomPage() {
 
             <form
               onSubmit={handleSendMessage}
-              className="p-3 border-t border-slate-800 bg-slate-900/60 flex items-center space-x-2"
+              className="p-3 border-t border-slate-200 bg-slate-50/50 flex items-center space-x-2"
             >
               <input
                 type="text"
                 value={newMessage}
                 onChange={(e) => setNewMessage(e.target.value)}
                 placeholder="Type a message..."
-                className="flex-1 px-3 py-2 bg-slate-900 border border-slate-700 rounded-xl text-xs text-white focus:outline-none focus:ring-1 focus:ring-indigo-500 placeholder-slate-500"
+                className="flex-1 px-3 py-2 bg-white border border-slate-300 rounded-xl text-xs text-slate-900 focus:outline-none focus:ring-1 focus:ring-indigo-500 placeholder-slate-400"
               />
               <button
                 type="submit"
                 disabled={!newMessage.trim()}
-                className="p-2 bg-indigo-600 hover:bg-indigo-500 disabled:opacity-50 text-white rounded-xl transition-colors shadow-sm"
+                className="p-2 bg-indigo-600 hover:bg-indigo-700 disabled:opacity-50 text-white rounded-xl transition-colors shadow-2xs"
               >
                 <Send className="w-4 h-4" />
               </button>

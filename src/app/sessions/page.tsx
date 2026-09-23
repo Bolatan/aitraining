@@ -325,28 +325,28 @@ export default function SessionsPage() {
     switch (status) {
       case 'ongoing':
         return (
-          <span className="px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-[10px] font-bold flex items-center space-x-1">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+          <span className="px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-300 text-[10px] font-bold flex items-center space-x-1">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse" />
             <span>Ongoing Live</span>
           </span>
         );
       case 'scheduled':
         return (
-          <span className="px-2 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 text-[10px] font-bold">
+          <span className="px-2 py-0.5 rounded-full bg-indigo-100 text-indigo-800 border border-indigo-300 text-[10px] font-bold">
             Scheduled
           </span>
         );
       case 'completed':
         return (
-          <span className="px-2 py-0.5 rounded-full bg-slate-800 text-slate-400 border border-slate-700 text-[10px] font-bold flex items-center space-x-1">
-            <CheckCircle2 className="w-3 h-3 text-emerald-400" />
+          <span className="px-2 py-0.5 rounded-full bg-slate-100 text-slate-700 border border-slate-300 text-[10px] font-bold flex items-center space-x-1">
+            <CheckCircle2 className="w-3 h-3 text-emerald-600" />
             <span>Completed</span>
           </span>
         );
       case 'cancelled':
         return (
-          <span className="px-2 py-0.5 rounded-full bg-rose-500/10 text-rose-400 border border-rose-500/20 text-[10px] font-bold flex items-center space-x-1">
-            <XCircle className="w-3 h-3" />
+          <span className="px-2 py-0.5 rounded-full bg-rose-100 text-rose-800 border border-rose-300 text-[10px] font-bold flex items-center space-x-1">
+            <XCircle className="w-3 h-3 text-rose-600" />
             <span>Cancelled</span>
           </span>
         );
@@ -357,12 +357,12 @@ export default function SessionsPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-[#0F172A] text-slate-100 flex flex-col font-sans">
+      <div className="min-h-screen bg-slate-50 text-slate-800 flex flex-col font-sans">
         <Navbar />
         <div className="flex-1 flex items-center justify-center">
           <div className="text-center space-y-3">
-            <div className="w-10 h-10 border-4 border-indigo-500 border-t-transparent rounded-full animate-spin mx-auto" />
-            <p className="text-sm text-slate-400 font-mono">Loading Sessions Portal...</p>
+            <div className="w-10 h-10 border-4 border-indigo-600 border-t-transparent rounded-full animate-spin mx-auto" />
+            <p className="text-sm text-slate-500 font-mono">Loading Sessions Portal...</p>
           </div>
         </div>
       </div>
@@ -370,21 +370,21 @@ export default function SessionsPage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#0F172A] text-slate-100 flex flex-col font-sans">
+    <div className="min-h-screen bg-slate-50 text-slate-800 flex flex-col font-sans">
       <Navbar />
 
       <div className="flex-1 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-8 space-y-6">
         {/* Header Bar */}
-        <div className="bg-[#1B2330] p-6 rounded-2xl border border-slate-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-xl">
+        <div className="bg-white p-6 rounded-2xl border border-slate-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-xs">
           <div className="flex items-center space-x-3">
-            <div className="w-12 h-12 rounded-xl bg-indigo-500/10 border border-indigo-500/30 flex items-center justify-center text-indigo-400">
+            <div className="w-12 h-12 rounded-xl bg-indigo-50 border border-indigo-200 flex items-center justify-center text-indigo-600">
               <CalendarIcon className="w-6 h-6" />
             </div>
             <div>
-              <h1 className="font-serif text-2xl font-bold text-white">
+              <h1 className="font-serif text-2xl font-bold text-slate-900">
                 Live Video Meetings & Calendaring
               </h1>
-              <p className="text-xs text-slate-400">
+              <p className="text-xs text-slate-500">
                 Schedule 1-on-1 mentoring sessions, join live video meeting rooms, and text message in real-time.
               </p>
             </div>
@@ -398,7 +398,7 @@ export default function SessionsPage() {
                   setSuccess('');
                   setShowScheduleModal(true);
                 }}
-                className="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold shadow-md flex items-center space-x-1.5 transition-colors"
+                className="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-semibold shadow-xs flex items-center space-x-1.5 transition-colors"
               >
                 <Plus className="w-4 h-4" />
                 <span>Schedule Session</span>
@@ -410,7 +410,7 @@ export default function SessionsPage() {
                 fetchSessions();
                 if (selectedContact) fetchDirectMessages(selectedContact._id);
               }}
-              className="p-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold border border-slate-700 transition-colors"
+              className="p-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold border border-slate-200 transition-colors"
               title="Refresh Data"
             >
               <RefreshCw className="w-4 h-4" />
@@ -419,13 +419,13 @@ export default function SessionsPage() {
         </div>
 
         {/* Tab Switcher */}
-        <div className="flex border-b border-slate-800 space-x-6">
+        <div className="flex border-b border-slate-200 space-x-6">
           <button
             onClick={() => setActiveTab('calendar')}
             className={`pb-3 text-xs font-semibold flex items-center space-x-2 border-b-2 transition-all ${
               activeTab === 'calendar'
-                ? 'border-indigo-400 text-indigo-400'
-                : 'border-transparent text-slate-400 hover:text-slate-200'
+                ? 'border-indigo-600 text-indigo-700'
+                : 'border-transparent text-slate-500 hover:text-slate-800'
             }`}
           >
             <CalendarDays className="w-4 h-4" />
@@ -436,8 +436,8 @@ export default function SessionsPage() {
             onClick={() => setActiveTab('messages')}
             className={`pb-3 text-xs font-semibold flex items-center space-x-2 border-b-2 transition-all ${
               activeTab === 'messages'
-                ? 'border-indigo-400 text-indigo-400'
-                : 'border-transparent text-slate-400 hover:text-slate-200'
+                ? 'border-indigo-600 text-indigo-700'
+                : 'border-transparent text-slate-500 hover:text-slate-800'
             }`}
           >
             <MessageSquare className="w-4 h-4" />
@@ -446,15 +446,15 @@ export default function SessionsPage() {
         </div>
 
         {error && (
-          <div className="p-3.5 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-300 text-xs flex items-center space-x-2">
-            <AlertCircle className="w-4 h-4 shrink-0 text-rose-400" />
+          <div className="p-3.5 rounded-xl bg-rose-50 border border-rose-200 text-rose-800 text-xs flex items-center space-x-2">
+            <AlertCircle className="w-4 h-4 shrink-0 text-rose-600" />
             <span>{error}</span>
           </div>
         )}
 
         {success && (
-          <div className="p-3.5 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-xs flex items-center space-x-2">
-            <CheckCircle2 className="w-4 h-4 shrink-0 text-emerald-400" />
+          <div className="p-3.5 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs flex items-center space-x-2">
+            <CheckCircle2 className="w-4 h-4 shrink-0 text-emerald-600" />
             <span>{success}</span>
           </div>
         )}
@@ -462,14 +462,14 @@ export default function SessionsPage() {
         {/* TAB 1: CALENDAR & SCHEDULED MEETINGS */}
         {activeTab === 'calendar' && (
           <div className="space-y-6">
-            <div className="flex flex-col sm:flex-row items-center justify-between gap-4 bg-[#1B2330] p-4 rounded-xl border border-slate-800">
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-4 bg-white p-4 rounded-xl border border-slate-200 shadow-2xs">
               <div className="flex items-center space-x-2">
                 <button
                   onClick={() => setCalendarViewMode('grid')}
                   className={`px-3 py-1.5 rounded-lg text-xs font-semibold flex items-center space-x-1.5 transition-colors ${
                     calendarViewMode === 'grid'
                       ? 'bg-indigo-600 text-white'
-                      : 'bg-slate-900 text-slate-400 hover:text-white'
+                      : 'bg-slate-100 text-slate-600 hover:text-slate-900'
                   }`}
                 >
                   <CalendarIcon className="w-3.5 h-3.5" />
@@ -480,7 +480,7 @@ export default function SessionsPage() {
                   className={`px-3 py-1.5 rounded-lg text-xs font-semibold flex items-center space-x-1.5 transition-colors ${
                     calendarViewMode === 'list'
                       ? 'bg-indigo-600 text-white'
-                      : 'bg-slate-900 text-slate-400 hover:text-white'
+                      : 'bg-slate-100 text-slate-600 hover:text-slate-900'
                   }`}
                 >
                   <List className="w-3.5 h-3.5" />
@@ -489,11 +489,11 @@ export default function SessionsPage() {
               </div>
 
               <div className="flex items-center space-x-2">
-                <span className="text-xs text-slate-400 font-mono">Status:</span>
+                <span className="text-xs text-slate-500 font-mono">Status:</span>
                 <select
                   value={statusFilter}
                   onChange={(e) => setStatusFilter(e.target.value)}
-                  className="px-3 py-1.5 bg-slate-900 border border-slate-700 rounded-lg text-xs text-white focus:outline-none focus:ring-1 focus:ring-indigo-500"
+                  className="px-3 py-1.5 bg-slate-50 border border-slate-300 rounded-lg text-xs text-slate-900 focus:outline-none focus:ring-1 focus:ring-indigo-500"
                 >
                   <option value="all">All Statuses</option>
                   <option value="scheduled">Scheduled</option>
@@ -507,28 +507,28 @@ export default function SessionsPage() {
             {calendarViewMode === 'grid' ? (
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                 {/* Calendar View Grid */}
-                <div className="lg:col-span-2 bg-[#1B2330] p-6 rounded-2xl border border-slate-800 space-y-4 shadow-xl">
-                  <div className="flex items-center justify-between border-b border-slate-800 pb-4">
-                    <h2 className="font-serif text-lg font-bold text-white">
+                <div className="lg:col-span-2 bg-white p-6 rounded-2xl border border-slate-200 space-y-4 shadow-xs">
+                  <div className="flex items-center justify-between border-b border-slate-200 pb-4">
+                    <h2 className="font-serif text-lg font-bold text-slate-900">
                       {currentDate.toLocaleString('default', { month: 'long', year: 'numeric' })}
                     </h2>
 
                     <div className="flex items-center space-x-2">
                       <button
                         onClick={handleToday}
-                        className="px-2.5 py-1 text-xs bg-slate-900 hover:bg-slate-800 text-slate-300 rounded-md border border-slate-700 transition-colors"
+                        className="px-2.5 py-1 text-xs bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-md border border-slate-200 transition-colors"
                       >
                         Today
                       </button>
                       <button
                         onClick={handlePrevMonth}
-                        className="p-1.5 bg-slate-900 hover:bg-slate-800 text-slate-300 rounded-md border border-slate-700 transition-colors"
+                        className="p-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-md border border-slate-200 transition-colors"
                       >
                         <ChevronLeft className="w-4 h-4" />
                       </button>
                       <button
                         onClick={handleNextMonth}
-                        className="p-1.5 bg-slate-900 hover:bg-slate-800 text-slate-300 rounded-md border border-slate-700 transition-colors"
+                        className="p-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-md border border-slate-200 transition-colors"
                       >
                         <ChevronRight className="w-4 h-4" />
                       </button>
@@ -536,7 +536,7 @@ export default function SessionsPage() {
                   </div>
 
                   {/* Days of week */}
-                  <div className="grid grid-cols-7 text-center font-mono text-[11px] font-bold text-slate-400 uppercase py-1">
+                  <div className="grid grid-cols-7 text-center font-mono text-[11px] font-bold text-slate-500 uppercase py-1">
                     <span>Sun</span>
                     <span>Mon</span>
                     <span>Tue</span>
@@ -552,7 +552,7 @@ export default function SessionsPage() {
                     {Array.from({ length: firstDayOfMonth }).map((_, idx) => (
                       <div
                         key={`prev-${idx}`}
-                        className="min-h-16 p-1.5 bg-slate-900/30 rounded-lg text-slate-600 text-xs font-mono select-none"
+                        className="min-h-16 p-1.5 bg-slate-50 rounded-lg text-slate-300 text-xs font-mono select-none"
                       >
                         {prevMonthDays - firstDayOfMonth + idx + 1}
                       </div>
@@ -582,22 +582,22 @@ export default function SessionsPage() {
                           onClick={() => setSelectedDate(dateObj)}
                           className={`min-h-20 p-1.5 rounded-lg border text-xs cursor-pointer transition-all flex flex-col justify-between ${
                             isSelected
-                              ? 'bg-indigo-950/60 border-indigo-500 shadow-md ring-1 ring-indigo-500/50'
+                              ? 'bg-indigo-50 border-indigo-600 shadow-2xs ring-1 ring-indigo-500/30'
                               : isToday
-                              ? 'bg-slate-800/80 border-amber-500/60 text-white'
-                              : 'bg-slate-900/60 border-slate-800 hover:bg-slate-800/50 text-slate-300'
+                              ? 'bg-amber-50/80 border-amber-400 text-slate-900'
+                              : 'bg-slate-50/80 border-slate-200 hover:bg-slate-100/80 text-slate-700'
                           }`}
                         >
                           <div className="flex items-center justify-between">
                             <span
                               className={`font-mono text-xs font-bold ${
-                                isToday ? 'text-amber-400' : 'text-slate-300'
+                                isToday ? 'text-amber-700' : 'text-slate-700'
                               }`}
                             >
                               {dayNumber}
                             </span>
                             {daySessions.length > 0 && (
-                              <span className="w-2 h-2 rounded-full bg-indigo-400 animate-pulse" />
+                              <span className="w-2 h-2 rounded-full bg-indigo-600 animate-pulse" />
                             )}
                           </div>
 
@@ -607,15 +607,15 @@ export default function SessionsPage() {
                                 key={s._id}
                                 className={`text-[10px] p-1 rounded font-medium truncate ${
                                   s.status === 'ongoing'
-                                    ? 'bg-emerald-500/30 text-emerald-200 border border-emerald-500/50'
-                                    : 'bg-indigo-600/30 text-indigo-200 border border-indigo-500/30'
+                                    ? 'bg-emerald-100 text-emerald-800 border border-emerald-300'
+                                    : 'bg-indigo-100 text-indigo-800 border border-indigo-200'
                                 }`}
                               >
                                 {s.title}
                               </div>
                             ))}
                             {daySessions.length > 2 && (
-                              <p className="text-[9px] font-mono text-slate-400">
+                              <p className="text-[9px] font-mono text-slate-500">
                                 +{daySessions.length - 2} more
                               </p>
                             )}
@@ -627,17 +627,17 @@ export default function SessionsPage() {
                 </div>
 
                 {/* Day details panel */}
-                <div className="bg-[#1B2330] p-6 rounded-2xl border border-slate-800 space-y-4 shadow-xl flex flex-col">
-                  <div className="border-b border-slate-800 pb-3 flex items-center justify-between">
+                <div className="bg-white p-6 rounded-2xl border border-slate-200 space-y-4 shadow-xs flex flex-col">
+                  <div className="border-b border-slate-200 pb-3 flex items-center justify-between">
                     <div>
-                      <h3 className="font-serif font-bold text-white text-base">
+                      <h3 className="font-serif font-bold text-slate-900 text-base">
                         {selectedDate.toLocaleDateString('default', {
                           weekday: 'short',
                           month: 'short',
                           day: 'numeric',
                         })}
                       </h3>
-                      <p className="text-xs text-slate-400 font-mono">
+                      <p className="text-xs text-slate-500 font-mono">
                         {selectedDateSessions.length} session(s) scheduled
                       </p>
                     </div>
@@ -651,7 +651,7 @@ export default function SessionsPage() {
                           }));
                           setShowScheduleModal(true);
                         }}
-                        className="px-2.5 py-1 bg-indigo-600/20 text-indigo-300 border border-indigo-500/30 hover:bg-indigo-600/30 rounded-lg text-xs font-semibold flex items-center space-x-1 transition-colors"
+                        className="px-2.5 py-1 bg-indigo-50 text-indigo-700 border border-indigo-200 hover:bg-indigo-100 rounded-lg text-xs font-semibold flex items-center space-x-1 transition-colors"
                       >
                         <Plus className="w-3.5 h-3.5" />
                         <span>Add</span>
@@ -661,30 +661,30 @@ export default function SessionsPage() {
 
                   <div className="flex-1 space-y-3 overflow-y-auto max-h-[420px]">
                     {selectedDateSessions.length === 0 ? (
-                      <div className="py-12 text-center text-slate-500 text-xs font-mono space-y-2">
-                        <CalendarIcon className="w-8 h-8 mx-auto text-slate-600" />
+                      <div className="py-12 text-center text-slate-400 text-xs font-mono space-y-2">
+                        <CalendarIcon className="w-8 h-8 mx-auto text-slate-300" />
                         <p>No sessions scheduled for this date.</p>
                       </div>
                     ) : (
                       selectedDateSessions.map((s) => (
                         <div
                           key={s._id}
-                          className="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-3 hover:border-slate-700 transition-colors"
+                          className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-3 hover:border-slate-300 transition-colors"
                         >
                           <div className="flex items-start justify-between gap-2">
-                            <h4 className="font-semibold text-white text-xs">{s.title}</h4>
+                            <h4 className="font-semibold text-slate-900 text-xs">{s.title}</h4>
                             {getStatusBadge(s.status)}
                           </div>
 
                           {s.description && (
-                            <p className="text-[11px] text-slate-400 line-clamp-2">
+                            <p className="text-[11px] text-slate-600 line-clamp-2">
                               {s.description}
                             </p>
                           )}
 
-                          <div className="space-y-1 text-[11px] text-slate-300 font-mono pt-1">
-                            <div className="flex items-center space-x-1.5 text-slate-400">
-                              <Clock className="w-3 h-3 text-indigo-400" />
+                          <div className="space-y-1 text-[11px] text-slate-700 font-mono pt-1">
+                            <div className="flex items-center space-x-1.5 text-slate-600">
+                              <Clock className="w-3 h-3 text-indigo-600" />
                               <span>
                                 {new Date(s.startTime).toLocaleTimeString([], {
                                   hour: '2-digit',
@@ -698,21 +698,21 @@ export default function SessionsPage() {
                               </span>
                             </div>
 
-                            <div className="flex items-center space-x-1.5 text-slate-400">
-                              <UserIcon className="w-3 h-3 text-emerald-400" />
+                            <div className="flex items-center space-x-1.5 text-slate-600">
+                              <UserIcon className="w-3 h-3 text-emerald-600" />
                               <span>Student: {s.studentId?.name || 'N/A'}</span>
                             </div>
 
-                            <div className="flex items-center space-x-1.5 text-slate-400">
-                              <UserIcon className="w-3 h-3 text-amber-400" />
+                            <div className="flex items-center space-x-1.5 text-slate-600">
+                              <UserIcon className="w-3 h-3 text-amber-600" />
                               <span>Mentor: {s.adminId?.name || 'Instructor'}</span>
                             </div>
                           </div>
 
-                          <div className="pt-2 flex items-center justify-between border-t border-slate-800/80">
+                          <div className="pt-2 flex items-center justify-between border-t border-slate-200">
                             <Link
                               href={`/sessions/${s._id}`}
-                              className="px-3 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold flex items-center space-x-1.5 transition-colors shadow-sm"
+                              className="px-3 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold flex items-center space-x-1.5 transition-colors shadow-2xs"
                             >
                               <Video className="w-3.5 h-3.5" />
                               <span>Join Room</span>
@@ -721,7 +721,7 @@ export default function SessionsPage() {
                             {currentUser?.isAdmin && (
                               <button
                                 onClick={() => handleCancelSession(s._id)}
-                                className="text-[10px] text-rose-400 hover:text-rose-300 font-mono hover:underline"
+                                className="text-[10px] text-rose-600 hover:text-rose-700 font-mono hover:underline"
                               >
                                 Cancel
                               </button>
@@ -735,37 +735,37 @@ export default function SessionsPage() {
               </div>
             ) : (
               /* List Schedule View */
-              <div className="bg-[#1B2330] p-6 rounded-2xl border border-slate-800 space-y-4 shadow-xl">
-                <div className="flex items-center justify-between border-b border-slate-800 pb-4">
-                  <h2 className="font-serif text-lg font-bold text-white">
+              <div className="bg-white p-6 rounded-2xl border border-slate-200 space-y-4 shadow-xs">
+                <div className="flex items-center justify-between border-b border-slate-200 pb-4">
+                  <h2 className="font-serif text-lg font-bold text-slate-900">
                     Scheduled Sessions Schedule ({filteredSessions.length})
                   </h2>
                 </div>
 
                 <div className="space-y-3">
                   {filteredSessions.length === 0 ? (
-                    <div className="py-12 text-center text-slate-500 text-xs font-mono">
+                    <div className="py-12 text-center text-slate-400 text-xs font-mono">
                       No sessions found matching filters.
                     </div>
                   ) : (
                     filteredSessions.map((s) => (
                       <div
                         key={s._id}
-                        className="p-5 rounded-xl bg-slate-900 border border-slate-800 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 hover:border-slate-700 transition-colors"
+                        className="p-5 rounded-xl bg-slate-50 border border-slate-200 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 hover:border-slate-300 transition-colors"
                       >
                         <div className="space-y-2 flex-1">
                           <div className="flex items-center space-x-3">
-                            <h3 className="font-semibold text-white text-sm">{s.title}</h3>
+                            <h3 className="font-semibold text-slate-900 text-sm">{s.title}</h3>
                             {getStatusBadge(s.status)}
                           </div>
 
                           {s.description && (
-                            <p className="text-xs text-slate-400">{s.description}</p>
+                            <p className="text-xs text-slate-600">{s.description}</p>
                           )}
 
-                          <div className="flex flex-wrap items-center gap-4 text-xs font-mono text-slate-300">
-                            <span className="flex items-center space-x-1 text-slate-400">
-                              <CalendarDays className="w-3.5 h-3.5 text-indigo-400" />
+                          <div className="flex flex-wrap items-center gap-4 text-xs font-mono text-slate-700">
+                            <span className="flex items-center space-x-1 text-slate-600">
+                              <CalendarDays className="w-3.5 h-3.5 text-indigo-600" />
                               <span>
                                 {new Date(s.startTime).toLocaleDateString([], {
                                   weekday: 'short',
@@ -776,8 +776,8 @@ export default function SessionsPage() {
                               </span>
                             </span>
 
-                            <span className="flex items-center space-x-1 text-slate-400">
-                              <Clock className="w-3.5 h-3.5 text-amber-400" />
+                            <span className="flex items-center space-x-1 text-slate-600">
+                              <Clock className="w-3.5 h-3.5 text-amber-600" />
                               <span>
                                 {new Date(s.startTime).toLocaleTimeString([], {
                                   hour: '2-digit',
@@ -791,8 +791,8 @@ export default function SessionsPage() {
                               </span>
                             </span>
 
-                            <span className="flex items-center space-x-1 text-slate-400">
-                              <UserIcon className="w-3.5 h-3.5 text-emerald-400" />
+                            <span className="flex items-center space-x-1 text-slate-600">
+                              <UserIcon className="w-3.5 h-3.5 text-emerald-600" />
                               <span>Student: {s.studentId?.name || 'Student'}</span>
                             </span>
                           </div>
@@ -802,7 +802,7 @@ export default function SessionsPage() {
                           {currentUser?.isAdmin && s.status === 'scheduled' && (
                             <button
                               onClick={() => handleUpdateStatus(s._id, 'ongoing')}
-                              className="px-3 py-1.5 rounded-lg bg-emerald-600/20 text-emerald-300 border border-emerald-500/30 hover:bg-emerald-600/30 text-xs font-semibold transition-colors"
+                              className="px-3 py-1.5 rounded-lg bg-emerald-100 text-emerald-800 border border-emerald-300 hover:bg-emerald-200 text-xs font-semibold transition-colors"
                             >
                               Start Meeting
                             </button>
@@ -810,7 +810,7 @@ export default function SessionsPage() {
 
                           <Link
                             href={`/sessions/${s._id}`}
-                            className="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold flex items-center space-x-1.5 shadow-md transition-colors"
+                            className="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold flex items-center space-x-1.5 shadow-2xs transition-colors"
                           >
                             <Video className="w-4 h-4" />
                             <span>Join Video & Chat</span>
@@ -819,7 +819,7 @@ export default function SessionsPage() {
                           {currentUser?.isAdmin && (
                             <button
                               onClick={() => handleCancelSession(s._id)}
-                              className="p-2 text-slate-500 hover:text-rose-400 transition-colors"
+                              className="p-2 text-slate-400 hover:text-rose-600 transition-colors"
                               title="Cancel Session"
                             >
                               <XCircle className="w-4 h-4" />
@@ -837,11 +837,11 @@ export default function SessionsPage() {
 
         {/* TAB 2: DIRECT TEXT MESSAGING */}
         {activeTab === 'messages' && (
-          <div className="bg-[#1B2330] rounded-2xl border border-slate-800 overflow-hidden grid grid-cols-1 md:grid-cols-3 min-h-[550px] shadow-xl">
+          <div className="bg-white rounded-2xl border border-slate-200 overflow-hidden grid grid-cols-1 md:grid-cols-3 min-h-[550px] shadow-xs">
             {/* Contacts Sidebar */}
-            <div className="border-r border-slate-800 p-4 space-y-4 bg-slate-900/50">
+            <div className="border-r border-slate-200 p-4 space-y-4 bg-slate-50/50">
               <div className="space-y-2">
-                <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400 font-mono">
+                <h3 className="text-xs font-bold uppercase tracking-wider text-slate-500 font-mono">
                   Conversations
                 </h3>
                 <div className="relative">
@@ -851,14 +851,14 @@ export default function SessionsPage() {
                     value={contactSearch}
                     onChange={(e) => setContactSearch(e.target.value)}
                     placeholder="Search contacts..."
-                    className="w-full pl-8 pr-3 py-1.5 bg-slate-900 border border-slate-800 rounded-lg text-xs text-white focus:outline-none focus:ring-1 focus:ring-indigo-500"
+                    className="w-full pl-8 pr-3 py-1.5 bg-white border border-slate-300 rounded-lg text-xs text-slate-900 focus:outline-none focus:ring-1 focus:ring-indigo-500"
                   />
                 </div>
               </div>
 
               <div className="space-y-1 overflow-y-auto max-h-[450px]">
                 {filteredContacts.length === 0 ? (
-                  <p className="text-xs text-slate-500 py-4 text-center font-mono">
+                  <p className="text-xs text-slate-400 py-4 text-center font-mono">
                     No contacts found.
                   </p>
                 ) : (
@@ -870,24 +870,24 @@ export default function SessionsPage() {
                         onClick={() => setSelectedContact(c)}
                         className={`w-full text-left p-3 rounded-xl border transition-all flex items-center justify-between ${
                           isSelected
-                            ? 'bg-indigo-600/20 border-indigo-500 text-white'
-                            : 'bg-slate-900/80 hover:bg-slate-800 border-slate-800 text-slate-300'
+                            ? 'bg-indigo-50 border-indigo-500 text-indigo-900 font-semibold'
+                            : 'bg-white hover:bg-slate-50 border-slate-200 text-slate-700'
                         }`}
                       >
                         <div className="flex items-center space-x-2.5 min-w-0">
-                          <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-indigo-500 to-purple-600 flex items-center justify-center font-bold text-white text-xs shrink-0 shadow-sm">
+                          <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-indigo-500 to-purple-600 flex items-center justify-center font-bold text-white text-xs shrink-0 shadow-2xs">
                             {c.name.charAt(0).toUpperCase()}
                           </div>
                           <div className="truncate">
                             <p className="text-xs font-semibold truncate flex items-center space-x-1">
                               <span>{c.name}</span>
                               {c.isAdmin && (
-                                <span className="text-[9px] bg-amber-500/20 text-amber-300 px-1 py-0.2 rounded border border-amber-500/30">
+                                <span className="text-[9px] bg-amber-100 text-amber-800 px-1 py-0.2 rounded border border-amber-300 font-semibold">
                                   Instructor
                                 </span>
                               )}
                             </p>
-                            <p className="text-[10px] text-slate-400 font-mono truncate">
+                            <p className="text-[10px] text-slate-500 font-mono truncate">
                               {c.email}
                             </p>
                           </div>
@@ -900,25 +900,25 @@ export default function SessionsPage() {
             </div>
 
             {/* Message Thread */}
-            <div className="md:col-span-2 flex flex-col justify-between bg-[#1B2330]">
+            <div className="md:col-span-2 flex flex-col justify-between bg-white">
               {selectedContact ? (
                 <>
                   {/* Chat Topbar */}
-                  <div className="p-4 border-b border-slate-800 flex items-center justify-between bg-slate-900/40">
+                  <div className="p-4 border-b border-slate-200 flex items-center justify-between bg-slate-50/50">
                     <div className="flex items-center space-x-3">
-                      <div className="w-9 h-9 rounded-full bg-indigo-600/30 border border-indigo-500/40 flex items-center justify-center font-bold text-indigo-300 text-xs">
+                      <div className="w-9 h-9 rounded-full bg-indigo-100 border border-indigo-200 flex items-center justify-center font-bold text-indigo-700 text-xs">
                         {selectedContact.name.charAt(0).toUpperCase()}
                       </div>
                       <div>
-                        <h3 className="font-semibold text-white text-xs flex items-center space-x-1.5">
+                        <h3 className="font-semibold text-slate-900 text-xs flex items-center space-x-1.5">
                           <span>{selectedContact.name}</span>
                           {selectedContact.isAdmin && (
-                            <span className="text-[10px] text-amber-400 bg-amber-500/10 px-1.5 py-0.2 rounded border border-amber-500/20">
+                            <span className="text-[10px] text-amber-800 bg-amber-100 px-1.5 py-0.2 rounded border border-amber-300 font-semibold">
                               Admin Instructor
                             </span>
                           )}
                         </h3>
-                        <p className="text-[10px] text-slate-400 font-mono">
+                        <p className="text-[10px] text-slate-500 font-mono">
                           {selectedContact.email}
                         </p>
                       </div>
@@ -928,8 +928,8 @@ export default function SessionsPage() {
                   {/* Messages Stream */}
                   <div className="p-4 flex-1 overflow-y-auto space-y-3 max-h-[400px]">
                     {messages.length === 0 ? (
-                      <div className="py-16 text-center text-slate-500 text-xs font-mono space-y-2">
-                        <MessageSquare className="w-8 h-8 mx-auto text-slate-600" />
+                      <div className="py-16 text-center text-slate-400 text-xs font-mono space-y-2">
+                        <MessageSquare className="w-8 h-8 mx-auto text-slate-300" />
                         <p>No text messages yet. Start a conversation!</p>
                       </div>
                     ) : (
@@ -941,10 +941,10 @@ export default function SessionsPage() {
                             className={`flex flex-col ${isMe ? 'items-end' : 'items-start'}`}
                           >
                             <div className="flex items-center space-x-1 mb-1 px-1">
-                              <span className="text-[10px] text-slate-400 font-semibold">
+                              <span className="text-[10px] text-slate-500 font-semibold">
                                 {m.senderId?.name}
                               </span>
-                              <span className="text-[9px] text-slate-500 font-mono">
+                              <span className="text-[9px] text-slate-400 font-mono">
                                 {new Date(m.createdAt).toLocaleTimeString([], {
                                   hour: '2-digit',
                                   minute: '2-digit',
@@ -954,8 +954,8 @@ export default function SessionsPage() {
                             <div
                               className={`p-3 rounded-2xl max-w-sm text-xs leading-relaxed ${
                                 isMe
-                                  ? 'bg-indigo-600 text-white rounded-br-none shadow-md'
-                                  : 'bg-slate-800 text-slate-200 rounded-bl-none border border-slate-700'
+                                  ? 'bg-indigo-600 text-white rounded-br-none shadow-2xs'
+                                  : 'bg-slate-100 text-slate-800 rounded-bl-none border border-slate-200'
                               }`}
                             >
                               {m.content}
@@ -970,19 +970,19 @@ export default function SessionsPage() {
                   {/* Message Input Form */}
                   <form
                     onSubmit={handleSendMessage}
-                    className="p-3 border-t border-slate-800 bg-slate-900/60 flex items-center space-x-2"
+                    className="p-3 border-t border-slate-200 bg-slate-50/50 flex items-center space-x-2"
                   >
                     <input
                       type="text"
                       value={newMessageText}
                       onChange={(e) => setNewMessageText(e.target.value)}
                       placeholder={`Message ${selectedContact.name}...`}
-                      className="flex-1 px-3.5 py-2 bg-slate-900 border border-slate-700 rounded-xl text-xs text-white focus:outline-none focus:ring-1 focus:ring-indigo-500 placeholder-slate-500"
+                      className="flex-1 px-3.5 py-2 bg-white border border-slate-300 rounded-xl text-xs text-slate-900 focus:outline-none focus:ring-1 focus:ring-indigo-500 placeholder-slate-400"
                     />
                     <button
                       type="submit"
                       disabled={sendingMessage || !newMessageText.trim()}
-                      className="px-4 py-2 bg-indigo-600 hover:bg-indigo-500 disabled:opacity-50 text-white rounded-xl text-xs font-bold transition-colors flex items-center space-x-1"
+                      className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 disabled:opacity-50 text-white rounded-xl text-xs font-bold transition-colors flex items-center space-x-1"
                     >
                       <Send className="w-3.5 h-3.5" />
                       <span>Send</span>
@@ -990,7 +990,7 @@ export default function SessionsPage() {
                   </form>
                 </>
               ) : (
-                <div className="m-auto text-center text-slate-500 text-xs font-mono py-12">
+                <div className="m-auto text-center text-slate-400 text-xs font-mono py-12">
                   Select a contact from the sidebar to view direct messages.
                 </div>
               )}
@@ -1000,16 +1000,16 @@ export default function SessionsPage() {
 
         {/* Schedule Session Modal for Admins */}
         {showScheduleModal && (
-          <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
-            <div className="bg-[#1B2330] border border-slate-800 rounded-2xl p-6 max-w-md w-full space-y-5 shadow-2xl">
-              <div className="flex items-center justify-between border-b border-slate-800 pb-3">
-                <h3 className="font-serif text-lg font-bold text-white flex items-center space-x-2">
-                  <CalendarIcon className="w-5 h-5 text-indigo-400" />
+          <div className="fixed inset-0 z-50 bg-slate-900/50 backdrop-blur-xs flex items-center justify-center p-4">
+            <div className="bg-white border border-slate-200 rounded-2xl p-6 max-w-md w-full space-y-5 shadow-2xl">
+              <div className="flex items-center justify-between border-b border-slate-200 pb-3">
+                <h3 className="font-serif text-lg font-bold text-slate-900 flex items-center space-x-2">
+                  <CalendarIcon className="w-5 h-5 text-indigo-600" />
                   <span>Schedule Mentoring Session</span>
                 </h3>
                 <button
                   onClick={() => setShowScheduleModal(false)}
-                  className="text-slate-400 hover:text-white text-sm"
+                  className="text-slate-400 hover:text-slate-700 text-sm"
                 >
                   ✕
                 </button>
@@ -1017,7 +1017,7 @@ export default function SessionsPage() {
 
               <form onSubmit={handleScheduleSubmit} className="space-y-4">
                 <div className="space-y-1.5">
-                  <label className="text-[11px] font-mono text-slate-400 uppercase font-bold">
+                  <label className="text-[11px] font-mono text-slate-600 uppercase font-bold">
                     Select Student *
                   </label>
                   <select
@@ -1026,7 +1026,7 @@ export default function SessionsPage() {
                       setScheduleData((prev) => ({ ...prev, studentId: e.target.value }))
                     }
                     required
-                    className="w-full px-3 py-2 bg-slate-900 border border-slate-700 rounded-xl text-xs text-white focus:outline-none focus:ring-1 focus:ring-indigo-500"
+                    className="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-xl text-xs text-slate-900 focus:outline-none focus:ring-1 focus:ring-indigo-500"
                   >
                     <option value="">-- Choose Student --</option>
                     {contacts.map((c) => (
@@ -1038,7 +1038,7 @@ export default function SessionsPage() {
                 </div>
 
                 <div className="space-y-1.5">
-                  <label className="text-[11px] font-mono text-slate-400 uppercase font-bold">
+                  <label className="text-[11px] font-mono text-slate-600 uppercase font-bold">
                     Session Title *
                   </label>
                   <input
@@ -1049,12 +1049,12 @@ export default function SessionsPage() {
                     }
                     placeholder="e.g. 1-on-1 Code Review & Mentorship"
                     required
-                    className="w-full px-3 py-2 bg-slate-900 border border-slate-700 rounded-xl text-xs text-white focus:outline-none focus:ring-1 focus:ring-indigo-500"
+                    className="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-xl text-xs text-slate-900 focus:outline-none focus:ring-1 focus:ring-indigo-500 placeholder-slate-400"
                   />
                 </div>
 
                 <div className="space-y-1.5">
-                  <label className="text-[11px] font-mono text-slate-400 uppercase font-bold">
+                  <label className="text-[11px] font-mono text-slate-600 uppercase font-bold">
                     Description / Agenda
                   </label>
                   <textarea
@@ -1064,12 +1064,12 @@ export default function SessionsPage() {
                     }
                     placeholder="Topics to discuss, preparation instructions..."
                     rows={2}
-                    className="w-full px-3 py-2 bg-slate-900 border border-slate-700 rounded-xl text-xs text-white focus:outline-none focus:ring-1 focus:ring-indigo-500"
+                    className="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-xl text-xs text-slate-900 focus:outline-none focus:ring-1 focus:ring-indigo-500 placeholder-slate-400"
                   />
                 </div>
 
                 <div className="space-y-1.5">
-                  <label className="text-[11px] font-mono text-slate-400 uppercase font-bold">
+                  <label className="text-[11px] font-mono text-slate-600 uppercase font-bold">
                     Date *
                   </label>
                   <input
@@ -1079,13 +1079,13 @@ export default function SessionsPage() {
                       setScheduleData((prev) => ({ ...prev, date: e.target.value }))
                     }
                     required
-                    className="w-full px-3 py-2 bg-slate-900 border border-slate-700 rounded-xl text-xs text-white focus:outline-none focus:ring-1 focus:ring-indigo-500"
+                    className="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-xl text-xs text-slate-900 focus:outline-none focus:ring-1 focus:ring-indigo-500"
                   />
                 </div>
 
                 <div className="grid grid-cols-2 gap-3">
                   <div className="space-y-1.5">
-                    <label className="text-[11px] font-mono text-slate-400 uppercase font-bold">
+                    <label className="text-[11px] font-mono text-slate-600 uppercase font-bold">
                       Start Time *
                     </label>
                     <input
@@ -1095,12 +1095,12 @@ export default function SessionsPage() {
                         setScheduleData((prev) => ({ ...prev, startTime: e.target.value }))
                       }
                       required
-                      className="w-full px-3 py-2 bg-slate-900 border border-slate-700 rounded-xl text-xs text-white focus:outline-none focus:ring-1 focus:ring-indigo-500"
+                      className="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-xl text-xs text-slate-900 focus:outline-none focus:ring-1 focus:ring-indigo-500"
                     />
                   </div>
 
                   <div className="space-y-1.5">
-                    <label className="text-[11px] font-mono text-slate-400 uppercase font-bold">
+                    <label className="text-[11px] font-mono text-slate-600 uppercase font-bold">
                       End Time *
                     </label>
                     <input
@@ -1110,7 +1110,7 @@ export default function SessionsPage() {
                         setScheduleData((prev) => ({ ...prev, endTime: e.target.value }))
                       }
                       required
-                      className="w-full px-3 py-2 bg-slate-900 border border-slate-700 rounded-xl text-xs text-white focus:outline-none focus:ring-1 focus:ring-indigo-500"
+                      className="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-xl text-xs text-slate-900 focus:outline-none focus:ring-1 focus:ring-indigo-500"
                     />
                   </div>
                 </div>
@@ -1119,14 +1119,14 @@ export default function SessionsPage() {
                   <button
                     type="button"
                     onClick={() => setShowScheduleModal(false)}
-                    className="px-4 py-2 rounded-xl bg-slate-800 text-slate-300 text-xs font-semibold hover:bg-slate-700 transition-colors"
+                    className="px-4 py-2 rounded-xl bg-slate-100 text-slate-700 text-xs font-semibold hover:bg-slate-200 transition-colors"
                   >
                     Cancel
                   </button>
                   <button
                     type="submit"
                     disabled={scheduling}
-                    className="px-5 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold transition-colors shadow-md disabled:opacity-50"
+                    className="px-5 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold transition-colors shadow-xs disabled:opacity-50"
                   >
                     {scheduling ? 'Scheduling...' : 'Confirm & Schedule'}
                   </button>
