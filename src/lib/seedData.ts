@@ -299,6 +299,67 @@ export const modulesData = [
   },
   {
     order: 6,
+    slug: 'cybersecurity-principles',
+    title: 'Cybersecurity Principles',
+    accentColor: '#1E3A8A',
+    estMinutes: 90,
+    objectives: [
+      'Understand core cybersecurity definitions, compliance drivers, and the analyst mindset',
+      'Apply the CIA triad, non-repudiation, and authenticity to real-world security requirements',
+      'Distinguish cybersecurity objectives and controls across work, home, education, and government environments',
+      'Navigate governance structures, policies, and the continuous risk management cycle',
+      'Utilize cybersecurity frameworks (NIST CSF, ISO 27001, CIS Controls) and zero trust / defense-in-depth models',
+    ],
+    lessons: [
+      {
+        tag: 'Foundations',
+        heading: 'What is Cybersecurity & Compliance',
+        body: '• Definition: Protecting people, systems, networks, and information from cyber threats.\n• Core Purpose: Protect confidentiality, integrity, and availability; reduce likelihood and impact of incidents; enable trusted operations.\n• Analyst Mindset: Understand business context, recognize threats/vulnerabilities/controls, detect, respond, recover, and learn.\n• Compliance Drivers: Cybersecurity operates within legal, regulatory, contractual, and internal obligations. Control gaps create legal and operational exposure.',
+      },
+      {
+        tag: 'Objectives',
+        heading: 'Cybersecurity Objectives & CIA Triad',
+        body: '• Confidentiality: Prevent unauthorized disclosure through least privilege, access control, and encryption.\n• Integrity: Prevent unauthorized alteration using change control, checksums, signatures, and audit trails.\n• Availability: Keep services usable via resilience, backups, redundancy, and disaster recovery.\n• Extended Objectives: Authenticity and Non-repudiation (supporting proof of actions or transactions).',
+      },
+      {
+        tag: 'Everyday Security',
+        heading: 'Applied Security Across Everyday Environments',
+        body: '• Remote Workers: MFA, secure remote access, managed/patched devices, approved VPN paths, avoiding sensitive work on unsafe networks.\n• Home Users: Strong unique passwords + MFA, secure router settings, updates, endpoint protection, and backups.\n• Education: Protecting learner/staff data, LMS security, role-based access, Wi-Fi/cloud security, and security awareness.\n• Government: Safeguard citizen data, privileged access management, network segmentation, secure portals, and continuity.',
+      },
+      {
+        tag: 'Governance & Risk',
+        heading: 'Governance & Continuous Risk Management',
+        body: '• Governance: Leadership sets direction and risk appetite; CISO/security leadership owns policy and strategy; operational layer follows standards and procedures.\n• Continuous Risk Cycle: 1) Identify (assets, threats, vulnerabilities) → 2) Assess (likelihood, impact) → 3) Respond (avoid, mitigate, transfer, accept) → 4) Monitor (track residual risk).\n• Key Concepts: Risk appetite (level of risk willing to retain), Risk tolerance (acceptable variation), Residual risk (risk remaining after controls).',
+      },
+      {
+        tag: 'Frameworks & Models',
+        heading: 'Models, Frameworks & Threat Scenarios',
+        body: '• NIST CSF: Identify, Protect, Detect, Respond, Recover.\n• ISO/IEC 27001 & CIS Controls: ISMS, risk-based controls, prioritized safeguards.\n• Security Models: Zero Trust (verify explicitly, least privilege) & Defense-in-Depth (layered controls).\n• Scenarios & Analyst Actions: Credential theft (MFA + account containment), Account takeover (RBAC + audit review), Malware delivery (email filtering + endpoint isolation), Supplier compromise (segmentation + access validation).',
+      },
+    ],
+    exercise:
+      'Analyze a potential account takeover scenario: identify which CIA objective was breached, map the appropriate preventive/detective controls, and outline the initial analyst containment steps.',
+    tip: 'Security is a continuous process — controls must match risk and organizational requirements.',
+    quiz: [
+      {
+        questionText: 'Which element of the CIA triad ensures data is protected against unauthorized alteration?',
+        options: ['Integrity', 'Confidentiality', 'Availability', 'Non-repudiation'],
+        correctAnswerIndex: 0,
+      },
+      {
+        questionText: 'What core security model operates under the principle of "verify explicitly and enforce least privilege"?',
+        options: ['Zero Trust', 'Defense-in-Depth', 'Air-gapping', 'Perimeter-only Security'],
+        correctAnswerIndex: 0,
+      },
+      {
+        questionText: 'Which step in the risk management cycle involves deciding to avoid, mitigate, transfer, or accept a risk?',
+        options: ['Respond', 'Identify', 'Assess', 'Monitor'],
+        correctAnswerIndex: 0,
+      },
+    ],
+  },
+  {
+    order: 7,
     slug: 'toolkit-summary',
     title: 'Toolkit summary',
     accentColor: '#1B2330',
@@ -311,7 +372,7 @@ export const modulesData = [
       {
         tag: 'Toolkit Matrix',
         heading: 'Complete Course Toolkit & Cost Summary',
-        body: '• Windows 11 — Best for: The desktop, windows, and files everything else in this course runs inside | Cost: Free — included with your PC\n• Word — Best for: Polished, structured text documents and proposals | Cost: Free web version, or with an Office licence\n• PowerPoint — Best for: Visual, spoken narratives — slide decks and pitches | Cost: Free web version, or with an Office licence\n• Excel — Best for: Numbers, budgets, and simple charts | Cost: Free web version, or with an Office licence\n• Claude — Best for: Drafting and thinking partner for outlines, proposals, and copy | Cost: Free plan, no card required\n• ChatGPT — Best for: Generating and iterating infographic images | Cost: Free tier, with account-based usage limits\n• Bolt.new — Best for: Rapid, full-stack application prototyping — vibe coding | Cost: Free tier, daily token allowance\n• MongoDB (Atlas) — Best for: Optional database for an application that needs to store data | Cost: Free Atlas tier available\n• GitHub — Best for: Version control and the handoff point between every Module 5 tool | Cost: Free for personal public and private repos\n• Vercel (Hobby) — Best for: Free hosting with automatic deploys from GitHub | Cost: Free for personal, non-commercial projects\n• Google Jules — Best for: Agentic, autonomous bug fixes, tests, and small features | Cost: Free introductory tier, daily task allowance',
+        body: '• Windows 11 — Best for: The desktop, windows, and files everything else in this course runs inside | Cost: Free — included with your PC\n• Word — Best for: Polished, structured text documents and proposals | Cost: Free web version, or with an Office licence\n• PowerPoint — Best for: Visual, spoken narratives — slide decks and pitches | Cost: Free web version, or with an Office licence\n• Excel — Best for: Numbers, budgets, and simple charts | Cost: Free web version, or with an Office licence\n• Claude — Best for: Drafting and thinking partner for outlines, proposals, and copy | Cost: Free plan, no card required\n• ChatGPT — Best for: Generating and iterating infographic images | Cost: Free tier, with account-based usage limits\n• Bolt.new — Best for: Rapid, full-stack application prototyping — vibe coding | Cost: Free tier, daily token allowance\n• Cybersecurity Principles — Best for: Governance, risk management, framework applications, and practical security operations | Cost: Free course module\n• MongoDB (Atlas) — Best for: Optional database for an application that needs to store data | Cost: Free Atlas tier available\n• GitHub — Best for: Version control and the handoff point between every Module 5 tool | Cost: Free for personal public and private repos\n• Vercel (Hobby) — Best for: Free hosting with automatic deploys from GitHub | Cost: Free for personal, non-commercial projects\n• Google Jules — Best for: Agentic, autonomous bug fixes, tests, and small features | Cost: Free introductory tier, daily task allowance',
       },
     ],
     exercise:
@@ -327,23 +388,23 @@ export const modulesData = [
     isToolkit: true,
   },
   {
-    order: 7,
+    order: 8,
     slug: 'capstone-proposal-backed-application',
     title: 'Capstone: Ship a Proposal-Backed Application',
     accentColor: '#1B2330',
     estMinutes: 120,
     objectives: [
-      'Combine all five modules into one deliverable: a small application idea, pitched properly, and actually live',
+      'Combine all course modules into one deliverable: a small application idea, pitched properly, secure by design, and actually live',
     ],
     lessons: [
       {
         tag: 'Capstone Steps',
         heading: 'Five capstone steps',
-        body: '1. Use Claude (Module 3) to draft a one-page proposal for a small application idea, then format it properly in Word (Module 2).\n2. Design one supporting infographic for the proposal in ChatGPT (Module 4), fact-checked against your own numbers.\n3. Turn the proposal\'s narrative into a short PowerPoint deck (Module 2 + 3), using your Office and Windows shortcuts to move fast.\n4. Build the application itself in Bolt, add MongoDB if it needs to store data, push it to GitHub, deploy it on Vercel, and send Jules at least one real improvement task (Module 5).\n5. Present the finished package — proposal, deck, infographic, and a working link to the live application.',
+        body: '1. Use Claude (Module 3) to draft a one-page proposal for a small application idea, then format it properly in Word (Module 2).\n2. Design one supporting infographic for the proposal in ChatGPT (Module 4), fact-checked against your own numbers.\n3. Turn the proposal\'s narrative into a short PowerPoint deck (Module 2 + 3), using your Office and Windows shortcuts to move fast.\n4. Apply Cybersecurity Principles (Module 6) to ensure identity, access, and data security standards are planned for the project.\n5. Build the application itself in Bolt, add MongoDB if it needs to store data, push it to GitHub, deploy it on Vercel, and send Jules at least one real improvement task (Module 5).\n6. Present the finished package — proposal, deck, infographic, and a working link to the live application.',
       },
     ],
     exercise:
-      'Complete all 5 capstone steps and submit your proposal URL, pitch deck URL, infographic URL, and live Vercel application URL.',
+      'Complete all capstone steps and submit your proposal URL, pitch deck URL, infographic URL, and live Vercel application URL.',
     tip: 'Present the finished package — proposal, deck, infographic, and a working link to the live application.',
     quiz: [
       {

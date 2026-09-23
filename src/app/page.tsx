@@ -6,13 +6,13 @@ import {
   MessageSquare,
   Palette,
   Rocket,
+  Shield,
   Award,
   ArrowRight,
   CheckCircle2,
   Lock,
   Sparkles,
   Zap,
-  Shield,
   Layers,
 } from 'lucide-react';
 
@@ -73,6 +73,17 @@ export default function LandingPage() {
       desc: 'Agentic AI & vibe coding pipeline: Bolt prototype → MongoDB Atlas → GitHub → Vercel Hobby → Google Jules agent tasks.',
       time: '3 hrs',
     },
+    {
+      num: 6,
+      title: 'Cybersecurity Principles',
+      accent: '#1E3A8A',
+      accentName: 'Navy',
+      bgClass: 'bg-[#1E3A8A]/20 border-[#1E3A8A]/40',
+      badgeBg: 'bg-[#1E3A8A]',
+      icon: Shield,
+      desc: 'Governance, risk management, CIA triad, frameworks (NIST CSF, Zero Trust), and practical security operations.',
+      time: '1.5 hrs',
+    },
   ];
 
   return (
@@ -95,7 +106,7 @@ export default function LandingPage() {
           </h1>
 
           <p className="text-lg sm:text-xl text-slate-300 max-w-3xl mx-auto mb-10 leading-relaxed font-light">
-            Windows 11 — Word, PowerPoint & Excel — prompt engineering with Claude, infographics with ChatGPT, and an agentic, vibe-coding pipeline: Bolt, GitHub, Vercel and Google Jules.
+            Windows 11 — Word, PowerPoint & Excel — Claude prompting, ChatGPT infographics, vibe coding with Bolt/GitHub/Vercel, and Cybersecurity Principles.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-14">
@@ -116,7 +127,7 @@ export default function LandingPage() {
 
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-3xl mx-auto pt-6 border-t border-slate-800/80 text-left">
             <div className="p-3.5 rounded-lg bg-slate-900/60 border border-slate-800">
-              <span className="text-2xl font-bold text-white block">5</span>
+              <span className="text-2xl font-bold text-white block">6</span>
               <span className="text-xs text-slate-400">Core Modules</span>
             </div>
             <div className="p-3.5 rounded-lg bg-slate-900/60 border border-slate-800">
@@ -124,7 +135,7 @@ export default function LandingPage() {
               <span className="text-xs text-slate-400">Capstone Project</span>
             </div>
             <div className="p-3.5 rounded-lg bg-slate-900/60 border border-slate-800">
-              <span className="text-2xl font-bold text-emerald-400 block">~12 hrs</span>
+              <span className="text-2xl font-bold text-emerald-400 block">~14 hrs</span>
               <span className="text-xs text-slate-400">Total, Self-Paced</span>
             </div>
             <div className="p-3.5 rounded-lg bg-slate-900/60 border border-slate-800">
@@ -142,8 +153,8 @@ export default function LandingPage() {
           <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
             <div className="p-4 bg-slate-900/80 border border-slate-800 rounded-xl space-y-2">
               <div className="w-6 h-6 rounded bg-indigo-500/20 text-indigo-400 font-bold text-xs flex items-center justify-center">1</div>
-              <h4 className="font-serif font-bold text-sm text-white">One flow, not five exercises</h4>
-              <p className="text-xs text-slate-400">Each module&apos;s output becomes the next module&apos;s raw material — proposal &rarr; infographic &rarr; deck &rarr; live application.</p>
+              <h4 className="font-serif font-bold text-sm text-white">Connected end-to-end flow</h4>
+              <p className="text-xs text-slate-400">Each module&apos;s output builds into the next — proposal &rarr; infographic &rarr; deck &rarr; application &rarr; cybersecurity governance.</p>
             </div>
             <div className="p-4 bg-slate-900/80 border border-slate-800 rounded-xl space-y-2">
               <div className="w-6 h-6 rounded bg-indigo-500/20 text-indigo-400 font-bold text-xs flex items-center justify-center">2</div>
@@ -169,18 +180,18 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* 5-Step Roadmap Graphic */}
+      {/* 6-Step Roadmap Graphic */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
         <div className="text-center mb-16">
           <h2 className="font-serif text-3xl sm:text-4xl font-bold text-white mb-4">
-            The 5-Step Beginner Learning Roadmap
+            The Beginner Learning Roadmap
           </h2>
           <p className="text-slate-400 max-w-2xl mx-auto text-sm sm:text-base">
-            Each module hands its output to the next: proposal &rarr; infographic &rarr; pitch deck &rarr; live application.
+            Each module hands its output to the next: proposal &rarr; infographic &rarr; pitch deck &rarr; application &rarr; security governance.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-4 relative mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-4 relative mb-12">
           {steps.map((step) => {
             const StepIcon = step.icon;
             return (
@@ -234,7 +245,7 @@ export default function LandingPage() {
                   Ship a Proposal-Backed Application
                 </h3>
                 <p className="text-sm text-slate-300 max-w-xl">
-                  Combine all five modules into one deliverable: a small application idea, pitched properly with a Word proposal, PowerPoint deck, ChatGPT infographic, and deployed live on Vercel.
+                  Combine all course modules into one deliverable: a small application idea, pitched properly with a Word proposal, PowerPoint deck, ChatGPT infographic, cybersecurity considerations, and deployed live on Vercel.
                 </p>
               </div>
             </div>
@@ -268,7 +279,7 @@ export default function LandingPage() {
                 Course Toolkit Summary
               </h3>
               <p className="text-xs text-slate-400 leading-relaxed mb-4">
-                Reference table covering Windows 11, MS Office, Claude, ChatGPT, Bolt, MongoDB Atlas, GitHub, Vercel Hobby, and Google Jules.
+                Reference table covering Windows 11, MS Office, Claude, ChatGPT, Bolt, MongoDB Atlas, Cybersecurity Principles, GitHub, Vercel Hobby, and Google Jules.
               </p>
             </div>
 
