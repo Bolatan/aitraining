@@ -99,7 +99,7 @@ export default function LandingPage() {
           </div>
 
           <h1 className="font-serif text-4xl sm:text-6xl font-extrabold tracking-tight text-white mb-6 leading-tight max-w-4xl mx-auto">
-            Deploy Websites and Applications for{' '}
+            From Zero to Deployed: Computing and AI for{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-300 to-amber-300">
               Absolute Beginners
             </span>
