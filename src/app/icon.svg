@@ -2,110 +2,93 @@
   <defs>
     <!-- Background Gradient -->
     <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0F172A"/>
-      <stop offset="50%" stop-color="#1E1B4B"/>
-      <stop offset="100%" stop-color="#0F172A"/>
+      <stop offset="0%" stop-color="#0B0F19"/>
+      <stop offset="50%" stop-color="#111827"/>
+      <stop offset="100%" stop-color="#0B0F19"/>
     </linearGradient>
 
-    <!-- Border Gradient -->
-    <linearGradient id="borderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#818CF8" stop-opacity="0.8"/>
-      <stop offset="50%" stop-color="#C084FC" stop-opacity="0.3"/>
-      <stop offset="100%" stop-color="#38BDF8" stop-opacity="0.8"/>
+    <!-- Glowing Shield / Border Gradient -->
+    <linearGradient id="neonGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#06B6D4"/>
+      <stop offset="50%" stop-color="#3B82F6"/>
+      <stop offset="100%" stop-color="#8B5CF6"/>
     </linearGradient>
 
-    <!-- Cap Top Facet 1 (Light/Cyan-Indigo) -->
-    <linearGradient id="capTop1" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#A5B4FC"/>
-      <stop offset="100%" stop-color="#6366F1"/>
-    </linearGradient>
-
-    <!-- Cap Top Facet 2 (Violet-Purple) -->
-    <linearGradient id="capTop2" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#818CF8"/>
-      <stop offset="100%" stop-color="#4C1D95"/>
-    </linearGradient>
-
-    <!-- Cap Base Gradient -->
-    <linearGradient id="capBaseGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#4F46E5"/>
-      <stop offset="100%" stop-color="#311B92"/>
-    </linearGradient>
-
-    <!-- Book Left Page Gradient -->
-    <linearGradient id="bookLeft" x1="0%" y1="0%" x2="100%" y2="100%">
+    <!-- Cap Top Gradient (Cyan-Blue) -->
+    <linearGradient id="capGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#38BDF8"/>
-      <stop offset="100%" stop-color="#0284C7"/>
+      <stop offset="100%" stop-color="#2563EB"/>
     </linearGradient>
 
-    <!-- Book Right Page Gradient -->
-    <linearGradient id="bookRight" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#818CF8"/>
-      <stop offset="100%" stop-color="#4F46E5"/>
+    <!-- Cap Shadow Facet Gradient (Indigo-Purple) -->
+    <linearGradient id="capGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1D4ED8"/>
+      <stop offset="100%" stop-color="#581C87"/>
+    </linearGradient>
+
+    <!-- Shield Hologram Base -->
+    <linearGradient id="holoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8B5CF6" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#06B6D4" stop-opacity="0.8"/>
     </linearGradient>
 
     <!-- Glow Filter -->
-    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
-      <feGaussianBlur stdDeviation="12" result="blur" />
-      <feComposite in="SourceGraphic" in2="blur" operator="over" />
-    </filter>
-
-    <filter id="sparkGlow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="8" result="blur" />
-      <feComponentTransfer in="blur" result="brightBlur">
-        <feFuncA type="linear" slope="1.8"/>
-      </feComponentTransfer>
+    <filter id="neonGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="10" result="blur" />
       <feMerge>
-        <feMergeNode in="brightBlur" />
+        <feMergeNode in="blur" />
         <feMergeNode in="SourceGraphic" />
       </feMerge>
     </filter>
   </defs>
 
-  <!-- Background Card -->
-  <rect width="512" height="512" rx="112" fill="url(#bgGrad)"/>
-  <rect x="12" y="12" width="488" height="488" rx="100" fill="none" stroke="url(#borderGrad)" stroke-width="6"/>
+  <!-- Background Squircle Base -->
+  <rect width="512" height="512" rx="120" fill="url(#bgGrad)"/>
+  <rect x="16" y="16" width="480" height="480" rx="104" fill="none" stroke="url(#neonGrad)" stroke-width="8" filter="url(#neonGlow)"/>
 
-  <!-- Subtle Background Glow Halo -->
-  <circle cx="256" cy="240" r="140" fill="#6366F1" opacity="0.15" filter="url(#glow)"/>
+  <!-- Background Tech Orbit Ring -->
+  <circle cx="256" cy="240" r="160" fill="none" stroke="#38BDF8" stroke-width="3" stroke-dasharray="12 12" opacity="0.3"/>
 
-  <!-- Open Book / Wings Motif Base -->
-  <path d="M 256,355 L 125,310 Q 115,375 256,410 Z" fill="url(#bookLeft)" opacity="0.9"/>
-  <path d="M 256,355 L 387,310 Q 397,375 256,410 Z" fill="url(#bookRight)" opacity="0.9"/>
-  <!-- Book Spine Center Glow Line -->
-  <line x1="256" y1="355" x2="256" y2="410" stroke="#E0E7FF" stroke-width="4" stroke-linecap="round" opacity="0.8"/>
+  <!-- Lower Tech Portal / Open Code Wings Base -->
+  <path d="M 120,330 L 256,390 L 392,330 L 256,290 Z" fill="url(#holoGrad)" opacity="0.4"/>
+  <path d="M 120,330 L 256,390 L 392,330" fill="none" stroke="#38BDF8" stroke-width="4"/>
 
-  <!-- Cap Base (Skullcap) -->
-  <path d="M 155,232 Q 256,278 357,232 L 357,288 Q 256,338 155,288 Z" fill="url(#capBaseGrad)"/>
-  <path d="M 155,288 Q 256,338 357,288" fill="none" stroke="#A5B4FC" stroke-width="3" opacity="0.6"/>
+  <!-- Code Brackets Highlight inside Portal (< />) -->
+  <path d="M 195,335 L 175,345 L 195,355" fill="none" stroke="#22D3EE" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M 317,335 L 337,345 L 317,355" fill="none" stroke="#22D3EE" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <line x1="268" y1="332" x2="244" y2="358" stroke="#F59E0B" stroke-width="6" stroke-linecap="round"/>
 
-  <!-- Mortarboard Diamond Top (Isometric Light Facets) -->
-  <!-- Top Facet (Upper Light) -->
-  <path d="M 256,110 L 442,198 L 256,236 L 70,198 Z" fill="url(#capTop1)"/>
-  <!-- Lower Facet (Shadow Edge) -->
-  <path d="M 70,198 L 256,236 L 442,198 L 256,204 Z" fill="url(#capTop2)" opacity="0.85"/>
+  <!-- Rocket / Growth Trajectory Spark Line in Center -->
+  <path d="M 256,380 L 256,190" stroke="#F59E0B" stroke-width="5" stroke-dasharray="8 6" opacity="0.8"/>
 
-  <!-- Crisp Modern Edge Strokes -->
-  <path d="M 256,110 L 442,198 L 256,236 L 70,198 Z" fill="none" stroke="#FFFFFF" stroke-width="5" stroke-linejoin="round" opacity="0.8"/>
-  <line x1="70" y1="198" x2="256" y2="236" stroke="#38BDF8" stroke-width="6" stroke-linecap="round"/>
-  <line x1="256" y1="236" x2="442" y2="198" stroke="#818CF8" stroke-width="6" stroke-linecap="round"/>
+  <!-- Mortarboard Cap Skullcap Base -->
+  <path d="M 170,225 Q 256,265 342,225 L 342,275 Q 256,320 170,275 Z" fill="url(#capGrad2)"/>
+  <path d="M 170,275 Q 256,320 342,275" fill="none" stroke="#60A5FA" stroke-width="4"/>
 
-  <!-- Center Button -->
-  <circle cx="256" cy="198" r="14" fill="#F59E0B" stroke="#FFFFFF" stroke-width="3"/>
+  <!-- Isometric Mortarboard Diamond Top -->
+  <!-- Top Light Facet -->
+  <path d="M 256,105 L 436,185 L 256,225 L 76,185 Z" fill="url(#capGrad1)"/>
+  <!-- Front Edge Highlight Facet -->
+  <path d="M 76,185 L 256,225 L 436,185 L 256,192 Z" fill="#1D4ED8" opacity="0.9"/>
 
-  <!-- Tassel String -->
-  <path d="M 256,198 C 330,205 385,245 405,280" fill="none" stroke="#F59E0B" stroke-width="7" stroke-linecap="round"/>
+  <!-- Crisp White Outer Stroke for Tiny Scale Readability -->
+  <path d="M 256,105 L 436,185 L 256,225 L 76,185 Z" fill="none" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round"/>
+  <line x1="76" y1="185" x2="256" y2="225" stroke="#22D3EE" stroke-width="8" stroke-linecap="round"/>
 
-  <!-- Glowing AI / Tech Spark on Tassel -->
-  <g filter="url(#sparkGlow)">
-    <!-- 4-point AI Star Spark -->
-    <path d="M 405,250 Q 405,280 435,280 Q 405,280 405,310 Q 405,280 375,280 Q 405,280 405,250 Z" fill="#FDE047"/>
-    <!-- Center Core Dot -->
-    <circle cx="405" cy="280" r="5" fill="#FFFFFF"/>
+  <!-- Center Gold Button -->
+  <circle cx="256" cy="188" r="14" fill="#F59E0B" stroke="#FFFFFF" stroke-width="3"/>
+
+  <!-- Glowing Tassel with Rocket/Star End -->
+  <path d="M 256,188 C 330,195 385,225 405,260" fill="none" stroke="#F59E0B" stroke-width="7" stroke-linecap="round"/>
+
+  <!-- Glowing AI Star / Launch Spark on Tassel -->
+  <g filter="url(#neonGlow)">
+    <polygon points="405,235 413,252 430,260 413,268 405,285 397,268 380,260 397,252" fill="#FDE047"/>
+    <circle cx="405" cy="260" r="5" fill="#FFFFFF"/>
   </g>
 
-  <!-- Small Code Accent Sparkle at upper left (< /> style subtle dots) -->
-  <circle cx="120" cy="140" r="4" fill="#38BDF8" opacity="0.9"/>
-  <circle cx="140" cy="125" r="6" fill="#818CF8" opacity="0.9"/>
-  <circle cx="390" cy="130" r="5" fill="#F43F5E" opacity="0.8"/>
+  <!-- Floating Tech Sparks -->
+  <circle cx="110" cy="120" r="6" fill="#22D3EE" opacity="0.9"/>
+  <circle cx="410" cy="110" r="8" fill="#F59E0B" opacity="0.9"/>
+  <circle cx="130" cy="280" r="5" fill="#A855F7" opacity="0.8"/>
 </svg>
